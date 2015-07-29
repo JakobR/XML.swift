@@ -14,6 +14,9 @@ FOUNDATION_EXPORT double LibXMLVersionNumber;
 //! Project version string for LibXML.
 FOUNDATION_EXPORT const unsigned char LibXMLVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <LibXML/PublicHeader.h>
 
-
+//#import <libxml/parser.h>
+//#import <libxml/tree.h>
+//#import <libxml/xpath.h>
+//#import <libxml/xpathInternals.h>
+//#import <libxml/xmlerror.h>

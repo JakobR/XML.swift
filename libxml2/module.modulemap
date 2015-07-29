@@ -1,0 +1,6 @@
+module libxml2 [system] {
+    umbrella "/usr/include/libxml2/libxml"
+    //header "/usr/include/libxml2/libxml/parser.h"
+    //header "/usr/include/libxml2/libxml/tree.h"
+    export *
+}
