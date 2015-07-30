@@ -33,11 +33,10 @@ class CLinkedListGenerator<T : CLinkedListNext>: GeneratorType {
 
     func next() -> UnsafeMutablePointer<T>? {
         if _next == nil {
-            return Optional<UnsafeMutablePointer<T>>()
+            return .None
         } else {
-            let result = _next
-            _next = _next.memory.cLinkedListNext
-            return result
+            defer { _next = _next.memory.cLinkedListNext }  // TODO: Add test case to check that this won't modify _next before returning it
+            return _next
         }
     }
 }

@@ -9,14 +9,45 @@
 import Foundation
 import libxml2
 
+public struct ParserOptions: OptionSetType {
+    public let rawValue: Int32
+
+    public init(rawValue: Int32) {
+        self.rawValue = rawValue
+    }
+
+    init(option: xmlParserOption) {
+        self.rawValue = Int32(option.rawValue)
+    }
+
+    // TODO: Names
+    public static let Default               = ParserOptions(rawValue: 0)
+    public static let RecoverOnError        = ParserOptions(option: XML_PARSE_RECOVER)
+    public static let ResolveEntities       = ParserOptions(option: XML_PARSE_NOENT)
+    public static let LoadExternalDTD       = ParserOptions(option: XML_PARSE_DTDLOAD)
+    public static let AttributeDefaults     = ParserOptions(option: XML_PARSE_DTDATTR)
+    public static let ValidateDTD           = ParserOptions(option: XML_PARSE_DTDVALID)
+    public static let SuppressErrors        = ParserOptions(option: XML_PARSE_NOERROR)
+    public static let SuppressWarnings      = ParserOptions(option: XML_PARSE_NOWARNING)
+    public static let Pedantic              = ParserOptions(option: XML_PARSE_PEDANTIC)
+    public static let RemoveBlankNodes      = ParserOptions(option: XML_PARSE_NOBLANKS)
+    public static let XINCLUDE              = ParserOptions(option: XML_PARSE_XINCLUDE)
+    public static let NoNetworkAccess       = ParserOptions(option: XML_PARSE_NONET)
+    public static let NODICT                = ParserOptions(option: XML_PARSE_NODICT)
+    public static let NSCLEAN               = ParserOptions(option: XML_PARSE_NSCLEAN)
+    public static let NOCDATA               = ParserOptions(option: XML_PARSE_NOCDATA)
+    public static let NOXINCNODE            = ParserOptions(option: XML_PARSE_NOXINCNODE)
+    public static let COMPACT               = ParserOptions(option: XML_PARSE_COMPACT)
+    public static let NOBASEFIX             = ParserOptions(option: XML_PARSE_NOBASEFIX)
+    public static let HUGE                  = ParserOptions(option: XML_PARSE_HUGE)
+    public static let IgnoreEncodingHint    = ParserOptions(option: XML_PARSE_IGNORE_ENC)
+    public static let BIG_LINES             = ParserOptions(option: XML_PARSE_BIG_LINES)
+
+}
 
 private func encodingName(encoding: NSStringEncoding) throws -> [CChar] {
-    guard let encodingName = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(encoding)) as String? else {
-        throw Error.UnknownEncoding
-    }
-    guard let cString = encodingName.cStringUsingEncoding(NSASCIIStringEncoding) else {
-        throw Error.UnknownEncoding
-    }
+    guard let encodingName = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(encoding)) as String? else { throw Error.UnknownEncoding }
+    guard let cString = encodingName.cStringUsingEncoding(NSASCIIStringEncoding) else { throw Error.UnknownEncoding }
     return cString
 }
 
@@ -27,10 +58,10 @@ private func encodingName(encoding: NSStringEncoding) throws -> [CChar] {
 class libxmlDoc {
     let ptr: xmlDocPtr
 
-    init(context: ParserContext, data: NSData, encoding: [CChar], options: Int32) throws {
+    init(context: ParserContext, data: NSData, encoding: [CChar]?, options: ParserOptions) throws {
         print("Using libxml2 of version \(LIBXML_DOTTED_VERSION)")
         print("replace entities? \(context.ptr.memory.replaceEntities)  (should be zero)")
-        ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding, options)
+        ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding ?? nil, options.rawValue)
         guard ptr != nil else {
             throw Error.UnknownError
         }
@@ -65,12 +96,11 @@ public class Document {
         self.doc = doc
     }
 
-    private convenience init(data: NSData, encoding: [CChar]) throws {
-        let options = /*Int32(XML_PARSE_DTDLOAD.rawValue) |*/ Int32(XML_PARSE_DTDVALID.rawValue) | Int32(XML_PARSE_DTDATTR.rawValue) | Int32(XML_PARSE_NONET.rawValue)
+    private convenience init(data: NSData, options: ParserOptions, encoding: [CChar]?) throws {
         self.init(doc: try libxmlDoc(context: ParserContext(), data: data, encoding: encoding, options: options))
     }
 
-    public convenience init(data: NSData, encoding: NSStringEncoding = NSUTF8StringEncoding) throws {
-        try self.init(data: data, encoding: try encodingName(encoding))
+    public convenience init(data: NSData, options: ParserOptions = .Default, encoding: NSStringEncoding? = nil) throws {
+        try self.init(data: data, options: options, encoding: encoding.map(encodingName))
     }
 }

@@ -24,6 +24,7 @@
 		3657F7E01B6A267D00752463 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DF1B6A267D00752463 /* Node.swift */; };
 		3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E11B6A313A00752463 /* CLinkedList.swift */; };
 		3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */; };
+		3657F7E71B6A625700752463 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E61B6A625700752463 /* Optional.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		3657F7DF1B6A267D00752463 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3657F7E11B6A313A00752463 /* CLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinkedList.swift; sourceTree = "<group>"; };
 		3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLinkedList+libxml2.swift"; sourceTree = "<group>"; };
+		3657F7E61B6A625700752463 /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +136,7 @@
 				3657F7DF1B6A267D00752463 /* Node.swift */,
 				3624382D1B69734300BB009C /* module.modulemap */,
 				3657F7D71B6A11D400752463 /* LibXML.xcconfig */,
-				3657F7E11B6A313A00752463 /* CLinkedList.swift */,
-				3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */,
+				3657F7E51B6A624400752463 /* Helper */,
 			);
 			path = LibXML;
 			sourceTree = "<group>";
@@ -159,6 +160,16 @@
 				3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */,
 			);
 			path = "LibXML-App";
+			sourceTree = "<group>";
+		};
+		3657F7E51B6A624400752463 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3657F7E11B6A313A00752463 /* CLinkedList.swift */,
+				3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */,
+				3657F7E61B6A625700752463 /* Optional.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +320,7 @@
 				3657F7DA1B6A1EBF00752463 /* Error.swift in Sources */,
 				3624382A1B696B4700BB009C /* Document.swift in Sources */,
 				3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */,
+				3657F7E71B6A625700752463 /* Optional.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

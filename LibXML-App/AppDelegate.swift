@@ -30,7 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         do {
             if let data = NSData(contentsOfURL: dict_url) {
-                let doc = try XML.Document(data: data)
+                let options: XML.ParserOptions = [.ValidateDTD, .AttributeDefaults, .NoNetworkAccess]
+                let doc = try XML.Document(data: data, options: options)
 
                 for e in doc.internalDTD.entities {
                     print("Entity: \(e.name) \t\t-> \(e.content)")
