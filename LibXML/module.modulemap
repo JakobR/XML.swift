@@ -3,7 +3,7 @@
 //    header "/usr/include/libxml2/libxml/tree.h"
 //    export *
 //}
-
+/*
 framework module LibXML {
     umbrella header "LibXML.h"
 
@@ -21,3 +21,4 @@ framework module LibXML {
     export *
     module * { export * }
 }
+*/

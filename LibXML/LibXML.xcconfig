@@ -1,0 +1,16 @@
+//
+//  LibXML.xcconfig
+//  LibXML
+//
+//  Created by Jakob Rath on 30/07/15.
+//  Copyright © 2015 Jakob Rath. All rights reserved.
+//
+
+PRODUCT_NAME = LibXML
+
+APPLICATION_EXTENSION_API_ONLY = YES
+
+// libxml2
+SWIFT_INCLUDE_PATHS = $(SRCROOT)/libxml2
+HEADER_SEARCH_PATHS = $(SDKROOT)/usr/include/libxml2
+OTHER_LDFLAGS = -lxml2
