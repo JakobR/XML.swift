@@ -1,4 +1,5 @@
 module libxml2 [system] {
     umbrella "/usr/include/libxml2/libxml"
+    exclude header "/usr/include/libxml2/libxml/DOCBparser.h"   // DOCBparser module is deprecated
     export *
 }
