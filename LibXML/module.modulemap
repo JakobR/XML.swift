@@ -1,10 +1,6 @@
-//module libxml2 [system] {
-//    header "/usr/include/libxml2/libxml/parser.h"
-//    header "/usr/include/libxml2/libxml/tree.h"
-//    export *
-//}
+
 /*
-framework module LibXML {
+framework module XML {
     umbrella header "LibXML.h"
 
     header "/usr/include/libxml2/libxml/parser.h"

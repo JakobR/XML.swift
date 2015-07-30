@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import LibXML
+import XML
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -29,8 +29,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //print(str.length)
 
         do {
-            let doc = try XMLDocument(url: dict_url)
-            print(doc.root.children.count)
+            if let data = NSData(contentsOfURL: dict_url) {
+                let doc = try XML.Document(data: data)
+
+                for e in doc.internalDTD.entities {
+                    print("Entity: \(e.name) \t\t-> \(e.content)")
+                }
+
+                print(doc.root.children.count)
+            }
         }
         catch {
             print("error")

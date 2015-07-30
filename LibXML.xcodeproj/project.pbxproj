@@ -8,16 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		362438031B69698A00BB009C /* LibXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 362438021B69698A00BB009C /* LibXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3624380A1B69698A00BB009C /* LibXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362437FF1B69698A00BB009C /* LibXML.framework */; };
+		3624380A1B69698A00BB009C /* XML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362437FF1B69698A00BB009C /* XML.framework */; };
 		3624380F1B69698A00BB009C /* LibXMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624380E1B69698A00BB009C /* LibXMLTests.swift */; };
 		362438261B696A7400BB009C /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 362438241B696A7400BB009C /* libxml2.2.tbd */; };
 		362438271B696A7400BB009C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 362438251B696A7400BB009C /* libxml2.tbd */; };
-		3624382A1B696B4700BB009C /* XMLDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362438291B696B4700BB009C /* XMLDocument.swift */; };
+		3624382A1B696B4700BB009C /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362438291B696B4700BB009C /* Document.swift */; };
 		3624382F1B69775500BB009C /* libxml2 in Resources */ = {isa = PBXBuildFile; fileRef = 3624382E1B69775500BB009C /* libxml2 */; };
 		3657F7AC1B697AF200752463 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7AB1B697AF200752463 /* AppDelegate.swift */; };
 		3657F7AE1B697AF200752463 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3657F7AD1B697AF200752463 /* Assets.xcassets */; };
 		3657F7B11B697AF300752463 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3657F7AF1B697AF300752463 /* MainMenu.xib */; };
-		3657F7D51B69839000752463 /* LibXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362437FF1B69698A00BB009C /* LibXML.framework */; };
+		3657F7D51B69839000752463 /* XML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362437FF1B69698A00BB009C /* XML.framework */; };
+		3657F7DA1B6A1EBF00752463 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7D91B6A1EBF00752463 /* Error.swift */; };
+		3657F7DC1B6A20B500752463 /* ParserContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DB1B6A20B500752463 /* ParserContext.swift */; };
+		3657F7DE1B6A224A00752463 /* DTD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DD1B6A224A00752463 /* DTD.swift */; };
+		3657F7E01B6A267D00752463 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DF1B6A267D00752463 /* Node.swift */; };
+		3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E11B6A313A00752463 /* CLinkedList.swift */; };
+		3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		362437FF1B69698A00BB009C /* LibXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LibXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		362437FF1B69698A00BB009C /* XML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		362438021B69698A00BB009C /* LibXML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibXML.h; sourceTree = "<group>"; };
 		362438041B69698A00BB009C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		362438091B69698A00BB009C /* LibXMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibXMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,7 +52,7 @@
 		362438101B69698A00BB009C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		362438241B696A7400BB009C /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		362438251B696A7400BB009C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
-		362438291B696B4700BB009C /* XMLDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLDocument.swift; sourceTree = "<group>"; };
+		362438291B696B4700BB009C /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		3624382D1B69734300BB009C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		3624382E1B69775500BB009C /* libxml2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libxml2; sourceTree = "<group>"; };
 		3657F7A91B697AF200752463 /* LibXML-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LibXML-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +61,13 @@
 		3657F7B01B697AF300752463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3657F7B21B697AF300752463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3657F7D71B6A11D400752463 /* LibXML.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LibXML.xcconfig; sourceTree = "<group>"; };
+		3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "LibXML-App.xcconfig"; sourceTree = "<group>"; };
+		3657F7D91B6A1EBF00752463 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		3657F7DB1B6A20B500752463 /* ParserContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserContext.swift; sourceTree = "<group>"; };
+		3657F7DD1B6A224A00752463 /* DTD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTD.swift; sourceTree = "<group>"; };
+		3657F7DF1B6A267D00752463 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		3657F7E11B6A313A00752463 /* CLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinkedList.swift; sourceTree = "<group>"; };
+		3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLinkedList+libxml2.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3624380A1B69698A00BB009C /* LibXML.framework in Frameworks */,
+				3624380A1B69698A00BB009C /* XML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3657F7D51B69839000752463 /* LibXML.framework in Frameworks */,
+				3657F7D51B69839000752463 /* XML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +115,7 @@
 		362438001B69698A00BB009C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				362437FF1B69698A00BB009C /* LibXML.framework */,
+				362437FF1B69698A00BB009C /* XML.framework */,
 				362438091B69698A00BB009C /* LibXMLTests.xctest */,
 				3657F7A91B697AF200752463 /* LibXML-App.app */,
 			);
@@ -114,9 +127,15 @@
 			children = (
 				362438021B69698A00BB009C /* LibXML.h */,
 				362438041B69698A00BB009C /* Info.plist */,
-				362438291B696B4700BB009C /* XMLDocument.swift */,
+				3657F7D91B6A1EBF00752463 /* Error.swift */,
+				3657F7DB1B6A20B500752463 /* ParserContext.swift */,
+				362438291B696B4700BB009C /* Document.swift */,
+				3657F7DD1B6A224A00752463 /* DTD.swift */,
+				3657F7DF1B6A267D00752463 /* Node.swift */,
 				3624382D1B69734300BB009C /* module.modulemap */,
 				3657F7D71B6A11D400752463 /* LibXML.xcconfig */,
+				3657F7E11B6A313A00752463 /* CLinkedList.swift */,
+				3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */,
 			);
 			path = LibXML;
 			sourceTree = "<group>";
@@ -137,6 +156,7 @@
 				3657F7AD1B697AF200752463 /* Assets.xcassets */,
 				3657F7AF1B697AF300752463 /* MainMenu.xib */,
 				3657F7B21B697AF300752463 /* Info.plist */,
+				3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */,
 			);
 			path = "LibXML-App";
 			sourceTree = "<group>";
@@ -170,7 +190,7 @@
 			);
 			name = LibXML;
 			productName = LibXML;
-			productReference = 362437FF1B69698A00BB009C /* LibXML.framework */;
+			productReference = 362437FF1B69698A00BB009C /* XML.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		362438081B69698A00BB009C /* LibXMLTests */ = {
@@ -282,7 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3624382A1B696B4700BB009C /* XMLDocument.swift in Sources */,
+				3657F7DE1B6A224A00752463 /* DTD.swift in Sources */,
+				3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */,
+				3657F7E01B6A267D00752463 /* Node.swift in Sources */,
+				3657F7DC1B6A20B500752463 /* ParserContext.swift in Sources */,
+				3657F7DA1B6A1EBF00752463 /* Error.swift in Sources */,
+				3624382A1B696B4700BB009C /* Document.swift in Sources */,
+				3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +500,7 @@
 		};
 		3657F7CA1B697AF300752463 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
@@ -487,6 +514,7 @@
 		};
 		3657F7CB1B697AF300752463 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";

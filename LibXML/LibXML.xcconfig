@@ -6,7 +6,7 @@
 //  Copyright © 2015 Jakob Rath. All rights reserved.
 //
 
-PRODUCT_NAME = LibXML
+PRODUCT_NAME = XML
 
 APPLICATION_EXTENSION_API_ONLY = YES
 
