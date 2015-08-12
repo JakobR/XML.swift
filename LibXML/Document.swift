@@ -58,17 +58,16 @@ private func encodingName(encoding: NSStringEncoding) throws -> [CChar] {
 class libxmlDoc {
     let ptr: xmlDocPtr
 
-    init(context: ParserContext, data: NSData, encoding: [CChar]?, options: ParserOptions) throws {
+    init(context: ParserContext, data: NSData, encoding: UnsafePointer<Int8>?, options: ParserOptions) throws {
         print("Using libxml2 of version \(LIBXML_DOTTED_VERSION)")
         print("replace entities? \(context.ptr.memory.replaceEntities)  (should be zero)")
-        ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding ?? nil, options.rawValue)
+        ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding ?? UnsafePointer<Int8>(), options.rawValue)
         guard ptr != nil else {
             throw Error.UnknownError
         }
         guard context.isValid else {
             throw Error.UnknownError
         }
-
     }
 
     deinit {
