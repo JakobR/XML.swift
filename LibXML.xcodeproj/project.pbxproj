@@ -24,6 +24,7 @@
 		3657F7E01B6A267D00752463 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DF1B6A267D00752463 /* Node.swift */; };
 		3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E11B6A313A00752463 /* CLinkedList.swift */; };
 		3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */; };
+		36BD20441B983FF20088EC4B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20431B983FF20088EC4B /* String.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		3657F7DF1B6A267D00752463 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3657F7E11B6A313A00752463 /* CLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinkedList.swift; sourceTree = "<group>"; };
 		3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLinkedList+libxml2.swift"; sourceTree = "<group>"; };
+		36BD20431B983FF20088EC4B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			children = (
 				3657F7E11B6A313A00752463 /* CLinkedList.swift */,
 				3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */,
+				36BD20431B983FF20088EC4B /* String.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				3657F7DC1B6A20B500752463 /* ParserContext.swift in Sources */,
 				3657F7DA1B6A1EBF00752463 /* Error.swift in Sources */,
 				3624382A1B696B4700BB009C /* Document.swift in Sources */,
+				36BD20441B983FF20088EC4B /* String.swift in Sources */,
 				3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
