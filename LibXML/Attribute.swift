@@ -19,11 +19,17 @@ public class Attribute {
         assert(self.ptr != nil && self.ptr.memory.type == XML_ATTRIBUTE_NODE)
     }
 
-    public private(set) lazy var namespace: Namespace = Namespace(self.ptr.memory.ns, keepAlive: self.keepAlive)
+    public var namespace: Namespace? {
+        guard self.ptr.memory.ns != nil else { return nil }
+        assert(self.ptr.memory.ns.memory.next == nil)
+        return Namespace(self.ptr.memory.ns, keepAlive: self.keepAlive)
+    }
 
-    public private(set) lazy var name: String? = String.fromCString(self.ptr.memory.name)
+    public var name: String? {
+        return String.fromCString(self.ptr.memory.name)
+    }
 
-    public private(set) lazy var value: String? = {
+    public var value: String? {
         // Mimics the behaviour of the xmlGetProp function
         let children = self.ptr.memory.children
         if (children != nil) {
@@ -38,5 +44,5 @@ public class Attribute {
         } else {
             return "";
         }
-    }()
+    }
 }

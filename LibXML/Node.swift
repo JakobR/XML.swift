@@ -18,11 +18,17 @@ public class Node {
         self.keepAlive = keepAlive
     }
 
-    public private(set) lazy var name: String? = String.fromCString(self.ptr.memory.name)
+    public var name: String? {
+        return String.fromCString(self.ptr.memory.name)
+    }
 
-    public private(set) lazy var children: [Node] = CLinkedList(self.ptr.memory.children).map { Node($0, keepAlive: self.keepAlive) }
+    public var children: [Node] {
+        return CLinkedList(self.ptr.memory.children).map { Node($0, keepAlive: self.keepAlive) }
+    }
 
-    public private(set) lazy var attributes: [Attribute] = CLinkedList(self.ptr.memory.properties).map { Attribute($0, keepAlive: self.keepAlive) }
+    public var attributes: [Attribute] {
+        return CLinkedList(self.ptr.memory.properties).map { Attribute($0, keepAlive: self.keepAlive) }
+    }
 
     /// Attribute lookup (not namespace aware)
     public func valueForAttribute(name: String) -> String? {

@@ -19,6 +19,11 @@ public class Namespace {
         assert(self.ptr != nil)
     }
 
-    public private(set) lazy var href: String? = String.fromCString(self.ptr.memory.href)
-    public private(set) lazy var prefix: String? = String.fromCString(self.ptr.memory.prefix)
+    public var href: String? {
+        return String.fromCString(self.ptr.memory.href)
+    }
+
+    public var prefix: String? {
+        return String.fromCString(self.ptr.memory.prefix)
+    }
 }
