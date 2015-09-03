@@ -20,10 +20,10 @@ public class Namespace {
     }
 
     public var href: String? {
-        return String.fromCString(self.ptr.memory.href)
+        return String.fromXMLString(self.ptr.memory.href)
     }
 
     public var prefix: String? {
-        return String.fromCString(self.ptr.memory.prefix)
+        return String.fromXMLString(self.ptr.memory.prefix)
     }
 }

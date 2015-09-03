@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         do {
             if let data = NSData(contentsOfURL: dict_url) {
                 let options: XML.ParserOptions = [.ValidateDTD, .AttributeDefaults, .NoNetworkAccess]
-                let doc = try XML.Document(data: data, options: options)
+                let doc = try XML.Document.create(data: data, options: options)
 
                 for e in doc.internalDTD.entities {
                     print("Entity: \(e.name) \t\t-> \(e.content)")
@@ -34,12 +34,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
                 for node in doc.root.children {
                     for node in node.children {
-                        for node in node.children {
+                        for node in node.elements {
                             if node.name == "gloss" {
                                 let name = node.name ?? "???"
                                 let lang = node.valueForAttribute("lang") ?? "???"
                                 let nslang = node.valueForAttribute("lang", namespace: "http://www.w3.org/XML/1998/namespace") ?? "???"
-                                let content = node.content ?? "???"
+                                let content = node.text ?? "???"
                                 print("Node: <" + name + ">" + content + "</>, lang = " + lang + ", ns-aware lang = " + nslang)
                             }
                         }

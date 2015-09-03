@@ -38,9 +38,9 @@ class XMLDocumentTests: XCTestCase {
 //            }
 //        }
 
-        expect { resolved.root.children[3].children[1].content }.to(equal("a & something"))
+        expect { resolved.root.children[3].children[1].text }.to(equal("a & something"))
         expect { resolved.root.children[3].children[1].children.count }.to(equal(1))
-        expect { unresolved.root.children[3].children[1].content }.to(equal("a & something"), description: "Node.content method always substitutes entities")
+        expect { unresolved.root.children[3].children[1].text }.to(equal("a & something"), description: "Node.content method always substitutes entities")
         expect { unresolved.root.children[3].children[1].children.count }.to(equal(2))
     }
 

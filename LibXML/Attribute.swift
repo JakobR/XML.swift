@@ -26,7 +26,7 @@ public class Attribute {
     }
 
     public var name: String? {
-        return String.fromCString(self.ptr.memory.name)
+        return String.fromXMLString(self.ptr.memory.name)
     }
 
     public var value: String? {
@@ -35,11 +35,11 @@ public class Attribute {
         if (children != nil) {
             if (children.memory.next == nil && (children.memory.type == XML_TEXT_NODE || children.memory.type == XML_CDATA_SECTION_NODE)) {
                 // Optimization for common case: only 1 text node
-                return String.fromCString(children.memory.content)
+                return String.fromXMLString(children.memory.content)
             } else {
                 let str = xmlNodeListGetString(self.ptr.memory.doc, UnsafePointer<xmlNode>(self.ptr), 1)
                 defer { xmlFree(str) }
-                return String.fromCString(str)  // TODO: Can I avoid the unnecessary copy?
+                return String.fromXMLString(str)  // TODO: Can I avoid the unnecessary copy?
             }
         } else {
             return "";

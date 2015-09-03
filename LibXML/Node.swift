@@ -19,26 +19,44 @@ public class Node {
     init(_ xmlNode: xmlNodePtr, keepAlive: libxmlDoc) {
         self.ptr = xmlNode
         self.keepAlive = keepAlive
+        assert(self.ptr != nil)
+    }
+
+    static func create(ptr: xmlNodePtr, keepAlive: libxmlDoc) -> Node {
+        assert(ptr != nil)
+        switch (ptr.memory.type.rawValue) {
+        case XML_ELEMENT_NODE.rawValue: return Element(ptr, keepAlive: keepAlive)
+        default: return Node(ptr, keepAlive: keepAlive)
+        }
     }
 
     public var name: String? {
-        return String.fromCString(self.ptr.memory.name)
+        return String.fromXMLString(self.ptr.memory.name)
     }
 
-    public var content: String? {
+    /// Read the text value of a node (either directly carried by the node if it is a text node, or the concatenated text of the node's children).
+    /// Entity references are substituted.
+    public var text: String? {
         let cs = xmlNodeGetContent(self.ptr)
         defer { xmlFree(cs) }
-        return String.fromCString(cs)
+        return String.fromXMLString(cs)
     }
 
     public var children: [Node] {
-        return CLinkedList(self.ptr.memory.children).map { Node($0, keepAlive: self.keepAlive) }
+        return CLinkedList(self.ptr.memory.children).map { Node.create($0, keepAlive: self.keepAlive) }
     }
 
-    public var elements: [Node] {
+    public var elements: [Element] {
         return CLinkedList(self.ptr.memory.children)
             .filter { $0.memory.type == XML_ELEMENT_NODE }
-            .map { Node($0, keepAlive: self.keepAlive) }
+            .map { Element($0, keepAlive: self.keepAlive) }
+    }
+}
+
+public class Element: Node {
+    override init(_ xmlNode: xmlNodePtr, keepAlive: libxmlDoc) {
+        super.init(xmlNode, keepAlive: keepAlive)
+        assert(self.ptr.memory.type == XML_ELEMENT_NODE)
     }
 
     public var attributes: [Attribute] {
@@ -49,13 +67,13 @@ public class Node {
     public func valueForAttribute(name: String) -> String? {
         let cs = xmlGetProp(ptr, name)
         defer { xmlFree(cs) }
-        return String.fromCString(cs)
+        return String.fromXMLString(cs)
     }
 
     /// Namespace-aware attribute lookup
     public func valueForAttribute(name: String, namespace: String) -> String? {
         let cs = xmlGetNsProp(ptr, name, namespace)
         defer { xmlFree(cs) }
-        return String.fromCString(cs)
+        return String.fromXMLString(cs)
     }
 }

@@ -37,14 +37,14 @@ public class Entity {
     }
 
     public var name: String? {
-        return String.fromCString(self.ptr.memory.name)
+        return String.fromXMLString(self.ptr.memory.name)
     }
 
     public var orig: String? {
-        return String.fromCString(self.ptr.memory.orig)
+        return String.fromXMLString(self.ptr.memory.orig)
     }
 
     public var content: String? {
-        return String.fromCString(self.ptr.memory.content)
+        return String.fromXMLString(self.ptr.memory.content)
     }
 }
