@@ -26,6 +26,7 @@
 		3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */; };
 		36BD20441B983FF20088EC4B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20431B983FF20088EC4B /* String.swift */; settings = {ASSET_TAGS = (); }; };
 		36BD20461B9843370088EC4B /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20451B9843370088EC4B /* Namespace.swift */; settings = {ASSET_TAGS = (); }; };
+		36BD204A1B9845E70088EC4B /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20491B9845E70088EC4B /* Attribute.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLinkedList+libxml2.swift"; sourceTree = "<group>"; };
 		36BD20431B983FF20088EC4B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		36BD20451B9843370088EC4B /* Namespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
+		36BD20491B9845E70088EC4B /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +135,7 @@
 				362438041B69698A00BB009C /* Info.plist */,
 				3657F7D91B6A1EBF00752463 /* Error.swift */,
 				3657F7DB1B6A20B500752463 /* ParserContext.swift */,
-				362438291B696B4700BB009C /* Document.swift */,
-				3657F7DD1B6A224A00752463 /* DTD.swift */,
-				36BD20451B9843370088EC4B /* Namespace.swift */,
-				3657F7DF1B6A267D00752463 /* Node.swift */,
+				36BD204B1B9846080088EC4B /* Document tree */,
 				3624382D1B69734300BB009C /* module.modulemap */,
 				3657F7D71B6A11D400752463 /* LibXML.xcconfig */,
 				3657F7E51B6A624400752463 /* Helper */,
@@ -173,6 +172,18 @@
 				36BD20431B983FF20088EC4B /* String.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		36BD204B1B9846080088EC4B /* Document tree */ = {
+			isa = PBXGroup;
+			children = (
+				36BD20491B9845E70088EC4B /* Attribute.swift */,
+				362438291B696B4700BB009C /* Document.swift */,
+				3657F7DD1B6A224A00752463 /* DTD.swift */,
+				36BD20451B9843370088EC4B /* Namespace.swift */,
+				3657F7DF1B6A267D00752463 /* Node.swift */,
+			);
+			name = "Document tree";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36BD204A1B9845E70088EC4B /* Attribute.swift in Sources */,
 				3657F7DE1B6A224A00752463 /* DTD.swift in Sources */,
 				36BD20461B9843370088EC4B /* Namespace.swift in Sources */,
 				3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */,
