@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import LibXML
+@testable import XML
 
 class LibXMLTests: XCTestCase {
     

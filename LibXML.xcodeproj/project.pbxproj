@@ -27,6 +27,8 @@
 		36BD20441B983FF20088EC4B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20431B983FF20088EC4B /* String.swift */; settings = {ASSET_TAGS = (); }; };
 		36BD20461B9843370088EC4B /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20451B9843370088EC4B /* Namespace.swift */; settings = {ASSET_TAGS = (); }; };
 		36BD204A1B9845E70088EC4B /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20491B9845E70088EC4B /* Attribute.swift */; settings = {ASSET_TAGS = (); }; };
+		36BD20531B98577A0088EC4B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BD20521B98577A0088EC4B /* Nimble.framework */; };
+		36BD20561B98586F0088EC4B /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 36BD20521B98577A0088EC4B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,19 @@
 			remoteInfo = LibXML;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		36BD20551B9858650088EC4B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				36BD20561B98586F0088EC4B /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		362437FF1B69698A00BB009C /* XML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +89,7 @@
 		36BD20431B983FF20088EC4B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		36BD20451B9843370088EC4B /* Namespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		36BD20491B9845E70088EC4B /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
+		36BD20521B98577A0088EC4B /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3624380A1B69698A00BB009C /* XML.framework in Frameworks */,
+				36BD20531B98577A0088EC4B /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +125,7 @@
 		362437F51B69698A00BB009C = {
 			isa = PBXGroup;
 			children = (
+				36BD20521B98577A0088EC4B /* Nimble.framework */,
 				362438241B696A7400BB009C /* libxml2.2.tbd */,
 				362438251B696A7400BB009C /* libxml2.tbd */,
 				362438011B69698A00BB009C /* LibXML */,
@@ -225,6 +243,7 @@
 				362438051B69698A00BB009C /* Sources */,
 				362438061B69698A00BB009C /* Frameworks */,
 				362438071B69698A00BB009C /* Resources */,
+				36BD20551B9858650088EC4B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -508,6 +527,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = LibXMLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.jakobrath.LibXMLTests;
@@ -519,6 +542,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = LibXMLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eu.jakobrath.LibXMLTests;
