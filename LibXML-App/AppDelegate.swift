@@ -44,7 +44,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                 let name = node.name ?? "???"
                                 let lang = node.valueForAttribute("lang") ?? "???"
                                 let nslang = node.valueForAttribute("lang", namespace: "http://www.w3.org/XML/1998/namespace") ?? "???"
-                                print("Node: <" + name + ">, lang = " + lang + ", ns-aware lang = " + nslang)
+                                let content = node.content ?? "???"
+                                print("Node: <" + name + ">" + content + "</>, lang = " + lang + ", ns-aware lang = " + nslang)
                             }
                         }
                     }

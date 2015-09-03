@@ -22,6 +22,12 @@ public class Node {
         return String.fromCString(self.ptr.memory.name)
     }
 
+    public var content: String? {
+        let cs = xmlNodeGetContent(self.ptr)
+        defer { xmlFree(cs) }
+        return String.fromCString(cs)
+    }
+
     public var children: [Node] {
         return CLinkedList(self.ptr.memory.children).map { Node($0, keepAlive: self.keepAlive) }
     }
