@@ -27,5 +27,8 @@ xcuserdata/
 ## Python specific
 __pycache__/
 
+## Helpful files during development
+/Support/
+
 
 ## Mostly from https://github.com/github/gitignore/blob/master/Swift.gitignore

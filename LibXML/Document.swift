@@ -61,12 +61,12 @@ class libxmlDoc {
     init(context: ParserContext, data: NSData, encoding: UnsafePointer<Int8>?, options: ParserOptions) throws {
         print("Using libxml2 of version \(LIBXML_DOTTED_VERSION)")
         print("replace entities? \(context.ptr.memory.replaceEntities)  (should be zero)")
+        // Need to set this function pointer to handle validation errors.
+        // context.ptr.memory.vctxt.error = COpaquePointer(bitPattern: 0xDEAD)
         ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding ?? UnsafePointer<Int8>(), options.rawValue)
-        guard ptr != nil else {
-            throw Error.UnknownError
-        }
+        assert(ptr != nil)
         guard context.isValid else {
-            throw Error.UnknownError
+            throw Error.InvalidDocument
         }
     }
 
@@ -95,11 +95,21 @@ public class Document {
         self.doc = doc
     }
 
-    private convenience init(data: NSData, options: ParserOptions, encoding: [CChar]?) throws {
-        self.init(doc: try libxmlDoc(context: ParserContext(), data: data, encoding: encoding, options: options))
+//    private convenience init(data: NSData, options: ParserOptions, encoding: [CChar]?) throws {
+//        // Need intermediate variable to avoid crash
+//        let doc = try libxmlDoc(context: ParserContext(), data: data, encoding: encoding, options: options)
+//        self.init(doc: doc)
+//    }
+//
+//    public convenience init(data: NSData, options: ParserOptions = .Default, encoding: NSStringEncoding? = nil) throws {
+//        try self.init(data: data, options: options, encoding: encoding.map(encodingName))
+//    }
+
+    // Use a factory method instead of convenience initializers to avoid crashes (probably a bug in Swift).
+    public static func create(data data: NSData, options: ParserOptions = .Default, encoding: NSStringEncoding? = nil) throws -> Document {
+        let enc = try encoding.map(encodingName)
+        let doc = try libxmlDoc(context: ParserContext(), data: data, encoding: enc, options: options)
+        return Document(doc: doc)
     }
 
-    public convenience init(data: NSData, options: ParserOptions = .Default, encoding: NSStringEncoding? = nil) throws {
-        try self.init(data: data, options: options, encoding: encoding.map(encodingName))
-    }
 }

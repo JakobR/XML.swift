@@ -9,6 +9,9 @@
 import Foundation
 import libxml2
 
+// TODO:
+// xmlNode is the general structure which encompasses elements, attributes, text, etc.
+// Use a more special Element class for elements (only allow attributes on elements?)
 public class Node {
     private let ptr: xmlNodePtr
     private let keepAlive: libxmlDoc
@@ -30,6 +33,12 @@ public class Node {
 
     public var children: [Node] {
         return CLinkedList(self.ptr.memory.children).map { Node($0, keepAlive: self.keepAlive) }
+    }
+
+    public var elements: [Node] {
+        return CLinkedList(self.ptr.memory.children)
+            .filter { $0.memory.type == XML_ELEMENT_NODE }
+            .map { Node($0, keepAlive: self.keepAlive) }
     }
 
     public var attributes: [Attribute] {

@@ -12,5 +12,7 @@ public enum Error: ErrorType {
 
     case UnknownEncoding
 
+    case InvalidDocument
+
     case UnknownError // TODO: REMOVE
 }

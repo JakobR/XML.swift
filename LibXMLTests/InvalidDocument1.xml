@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE root [
+    <!ELEMENT root (entry*)>
+    <!ELEMENT entry (value+)>
+    <!ATTLIST entry name CDATA #REQUIRED>
+    <!ELEMENT value (#PCDATA)>
+    <!ENTITY smth "something">
+]>
+<root>
+    <entry name="first entry">
+        <value>a value</value>
+        <value>another value</value>
+    </entry>
+    <entry name="second entry">
+        <value>a &amp; &smth;</value>
+    </entry>
+    <entry name="invalid entry (no value child)">
+    </entry>
+</root>
