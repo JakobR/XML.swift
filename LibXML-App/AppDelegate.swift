@@ -37,7 +37,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     print("Entity: \(e.name) \t\t-> \(e.content)")
                 }
 
-                print(doc.root.children.count)
+                for node in doc.root.children {
+                    for node in node.children {
+                        for node in node.children {
+                            if node.name == "gloss" {
+                                let name = node.name ?? "???"
+                                let lang = node.valueForAttribute("lang") ?? "???"
+                                let nslang = node.valueForAttribute("lang", namespace: "http://www.w3.org/XML/1998/namespace") ?? "???"
+                                print("Node: <" + name + ">, lang = " + lang + ", ns-aware lang = " + nslang)
+                            }
+                        }
+                    }
+                }
             }
         }
         catch {
