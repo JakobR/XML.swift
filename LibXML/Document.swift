@@ -88,8 +88,8 @@ class libxmlDoc {
 public class Document {
     private let doc: libxmlDoc
 
-    public lazy var root: Node = self.doc.getRoot()
-    public lazy var internalDTD: DTD = self.doc.getInternalDTD()
+    public private(set) lazy var root: Node = self.doc.getRoot()
+    public private(set) lazy var internalDTD: DTD = self.doc.getInternalDTD()
 
     private init(doc: libxmlDoc) {
         self.doc = doc

@@ -11,28 +11,29 @@ import libxml2
 
 public class DTD {
     private let ptr: xmlDtdPtr
-    private let keepAlive: Any
+    private let keepAlive: libxmlDoc
 
-    init(_ ptr: xmlDtdPtr, keepAlive: Any) {
+    init(_ ptr: xmlDtdPtr, keepAlive: libxmlDoc) {
         self.ptr = ptr
         self.keepAlive = keepAlive
     }
 
-    public lazy var entities: [Entity] = CLinkedList(self.ptr.memory.children)
+    public private(set) lazy var entities: [Entity] =
+        CLinkedList(self.ptr.memory.children)
         .filter { $0.memory.type == XML_ENTITY_DECL }
         .map { Entity(xmlEntityPtr($0), keepAlive: self.keepAlive) }
 }
 
 public class Entity {
     private let ptr: xmlEntityPtr
-    private let keepAlive: Any
+    private let keepAlive: libxmlDoc
 
-    init(_ ptr: xmlEntityPtr, keepAlive: Any) {
+    init(_ ptr: xmlEntityPtr, keepAlive: libxmlDoc) {
         self.ptr = ptr
         self.keepAlive = keepAlive
     }
 
-    public lazy var name: String? = String.fromCString(UnsafePointer<CChar>(self.ptr.memory.name))
-    public lazy var orig: String? = String.fromCString(UnsafePointer<CChar>(self.ptr.memory.orig))
-    public lazy var content: String? = String.fromCString(UnsafePointer<CChar>(self.ptr.memory.content))
+    public private(set) lazy var name: String? = String.fromCString(self.ptr.memory.name)
+    public private(set) lazy var orig: String? = String.fromCString(self.ptr.memory.orig)
+    public private(set) lazy var content: String? = String.fromCString(self.ptr.memory.content)
 }
