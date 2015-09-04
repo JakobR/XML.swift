@@ -23,7 +23,7 @@ class XMLDocumentTests: XCTestCase {
             case Error.ParseError(let message): expect(message).toNot(beEmpty(), description: "expected a non-empty error message")
             default: fail("expected a ParseError")
             }
-        }, description: "excepted a ParseError with a non-empty error message")
+            }, description: "expected a ParseError with a non-empty error message")
     }
 
     func testDocumentValidation() {
@@ -33,7 +33,7 @@ class XMLDocumentTests: XCTestCase {
             case Error.InvalidDocument(let message): expect(message).toNot(beEmpty(), description: "expected a non-empty error message")
             default: fail("expected an InvalidDocument error")
             }
-        }, description: "excepted an InvalidDocument error with a non-empty error message")
+            }, description: "expected an InvalidDocument error with a non-empty error message")
     }
 
     func testEntityResolution() {
@@ -59,11 +59,11 @@ class XMLDocumentTests: XCTestCase {
         expect { entities[1].orig }.to(equal("anything &amp; &smth;"))
     }
 
-//    func testPerformanceExample() {
-//        // This is an example of a performance test case.
-//        self.measureBlock {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
-
+    //    func testPerformanceExample() {
+    //        // This is an example of a performance test case.
+    //        self.measureBlock {
+    //            // Put the code you want to measure the time of here.
+    //        }
+    //    }
+    
 }

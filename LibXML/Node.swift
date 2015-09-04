@@ -42,19 +42,19 @@ public enum NodeType: xmlElementType.RawValue {
 }
 
 public class Node {
-    private let ptr: xmlNodePtr
-    private let keepAlive: libxmlDoc
+    let ptr: xmlNodePtr
+    let doc: libxmlDoc
 
-    init(_ xmlNode: xmlNodePtr, keepAlive: libxmlDoc) {
-        self.ptr = xmlNode
-        self.keepAlive = keepAlive
+    init(_ ptr: xmlNodePtr, doc: libxmlDoc) {
+        self.ptr = ptr
+        self.doc = doc
         assert(self.ptr != nil)
     }
 
     public var namespace: Namespace? {
         guard self.ptr.memory.ns != nil else { return nil }
         assert(self.ptr.memory.ns.memory.next == nil)
-        return Namespace(self.ptr.memory.ns, keepAlive: self.keepAlive)
+        return Namespace(self.ptr.memory.ns, keepAlive: self.doc)
     }
 
     public var type: NodeType { return NodeType(xmlType: self.ptr.memory.type) }
@@ -74,17 +74,17 @@ public class Node {
     }
 
     public var children: [Node] {
-        return CLinkedList(self.ptr.memory.children).map { Node($0, keepAlive: self.keepAlive) }
+        return CLinkedList(self.ptr.memory.children).map { Node($0, doc: self.doc) }
     }
 
     public var elements: [Node] {
         return CLinkedList(self.ptr.memory.children)
             .filter { $0.memory.type == XML_ELEMENT_NODE }
-            .map { Node($0, keepAlive: self.keepAlive) }
+            .map { Node($0, doc: self.doc) }
     }
 
     public var attributes: [Attribute] {
-        return CLinkedList(self.ptr.memory.properties).map { Attribute($0, keepAlive: self.keepAlive) }
+        return CLinkedList(self.ptr.memory.properties).map { Attribute($0, keepAlive: self.doc) }
     }
 
     /// Attribute lookup (not namespace aware)

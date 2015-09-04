@@ -12,11 +12,4 @@ public enum Error: ErrorType {
     case UnknownEncoding
     case ParseError(message: String)
     case InvalidDocument(message: String)
-
-    var isParseError: Bool {
-        switch self {
-        case .ParseError(message: _): return true
-        default: return false
-        }
-    }
 }

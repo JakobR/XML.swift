@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3622D3DC1B9A460E002A0FB0 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622D3DB1B9A460E002A0FB0 /* Box.swift */; settings = {ASSET_TAGS = (); }; };
 		362438031B69698A00BB009C /* LibXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 362438021B69698A00BB009C /* LibXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3624380A1B69698A00BB009C /* XML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362437FF1B69698A00BB009C /* XML.framework */; };
 		3624380F1B69698A00BB009C /* XMLDocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624380E1B69698A00BB009C /* XMLDocumentTests.swift */; };
@@ -35,6 +36,8 @@
 		36BD20661B9875A80088EC4B /* LibXML-Tests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */; settings = {ASSET_TAGS = (); }; };
 		36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20801B989AC00088EC4B /* NodeTypeTests.swift */; settings = {ASSET_TAGS = (); }; };
 		36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */; settings = {ASSET_TAGS = (); }; };
+		36CC62A41B99DB850060FC7E /* XPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A31B99DB850060FC7E /* XPath.swift */; settings = {ASSET_TAGS = (); }; };
+		36CC62A61B99F9D30060FC7E /* XPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A51B99F9D30060FC7E /* XPathTests.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3622D3DB1B9A460E002A0FB0 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		362437FF1B69698A00BB009C /* XML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		362438021B69698A00BB009C /* LibXML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibXML.h; sourceTree = "<group>"; };
 		362438041B69698A00BB009C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "LibXML-Tests.xcconfig"; path = "LibXMLTests/LibXML-Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		36BD20801B989AC00088EC4B /* NodeTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeTypeTests.swift; sourceTree = "<group>"; };
 		36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IllegalXMLDocument1.xml; sourceTree = "<group>"; };
+		36CC62A31B99DB850060FC7E /* XPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPath.swift; sourceTree = "<group>"; };
+		36CC62A51B99F9D30060FC7E /* XPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPathTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +172,7 @@
 				3657F7D91B6A1EBF00752463 /* Error.swift */,
 				3657F7DB1B6A20B500752463 /* ParserContext.swift */,
 				36BD204B1B9846080088EC4B /* Document tree */,
-				36CC62A01B99B0220060FC7E /* Xpath */,
+				36CC62A01B99B0220060FC7E /* XPath */,
 				3624382D1B69734300BB009C /* module.modulemap */,
 				3657F7D71B6A11D400752463 /* LibXML.xcconfig */,
 				3657F7E51B6A624400752463 /* Helper */,
@@ -179,6 +185,7 @@
 			children = (
 				36BD20801B989AC00088EC4B /* NodeTypeTests.swift */,
 				3624380E1B69698A00BB009C /* XMLDocumentTests.swift */,
+				36CC62A51B99F9D30060FC7E /* XPathTests.swift */,
 				362438101B69698A00BB009C /* Info.plist */,
 				36BD20571B9859640088EC4B /* TestDocument1.xml */,
 				36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */,
@@ -207,6 +214,7 @@
 				3657F7E11B6A313A00752463 /* CLinkedList.swift */,
 				3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */,
 				36BD20431B983FF20088EC4B /* String.swift */,
+				3622D3DB1B9A460E002A0FB0 /* Box.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -223,11 +231,12 @@
 			name = "Document tree";
 			sourceTree = "<group>";
 		};
-		36CC62A01B99B0220060FC7E /* Xpath */ = {
+		36CC62A01B99B0220060FC7E /* XPath */ = {
 			isa = PBXGroup;
 			children = (
+				36CC62A31B99DB850060FC7E /* XPath.swift */,
 			);
-			name = Xpath;
+			name = XPath;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,12 +387,14 @@
 			files = (
 				36BD204A1B9845E70088EC4B /* Attribute.swift in Sources */,
 				3657F7DE1B6A224A00752463 /* DTD.swift in Sources */,
+				36CC62A41B99DB850060FC7E /* XPath.swift in Sources */,
 				36BD20461B9843370088EC4B /* Namespace.swift in Sources */,
 				3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */,
 				3657F7E01B6A267D00752463 /* Node.swift in Sources */,
 				3657F7DC1B6A20B500752463 /* ParserContext.swift in Sources */,
 				3657F7DA1B6A1EBF00752463 /* Error.swift in Sources */,
 				3624382A1B696B4700BB009C /* Document.swift in Sources */,
+				3622D3DC1B9A460E002A0FB0 /* Box.swift in Sources */,
 				36BD20441B983FF20088EC4B /* String.swift in Sources */,
 				3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */,
 			);
@@ -396,6 +407,7 @@
 				36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */,
 				3624380F1B69698A00BB009C /* XMLDocumentTests.swift in Sources */,
 				36BD205C1B985F970088EC4B /* Helper.swift in Sources */,
+				36CC62A61B99F9D30060FC7E /* XPathTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

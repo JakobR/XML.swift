@@ -32,19 +32,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     print("Entity: \(e.name) \t\t-> \(e.content)")
                 }
 
-                for node in doc.root.children {
-                    for node in node.children {
-                        for node in node.elements {
-                            if node.name == "gloss" {
-                                let name = node.name ?? "???"
-                                let lang = node.valueForAttribute("lang") ?? "???"
-                                let nslang = node.valueForAttribute("lang", namespace: "http://www.w3.org/XML/1998/namespace") ?? "???"
-                                let content = node.text ?? "???"
-                                print("Node: <" + name + ">" + content + "</>, lang = " + lang + ", ns-aware lang = " + nslang)
-                            }
-                        }
-                    }
-                }
+//                for node in doc.root.children {
+//                    for node in node.children {
+//                        for node in node.elements {
+//                            if node.name == "gloss" {
+//                                let name = node.name ?? "???"
+//                                let lang = node.valueForAttribute("lang") ?? "???"
+//                                let nslang = node.valueForAttribute("lang", namespace: "http://www.w3.org/XML/1998/namespace") ?? "???"
+//                                let content = node.text ?? "???"
+//                                print("Node: <" + name + ">" + content + "</>, lang = " + lang + ", ns-aware lang = " + nslang)
+//                            }
+//                        }
+//                    }
+//                }
+
+                let xp = try XPath("//entry")
+                try xp.evaluateOn(doc.root)
             }
         }
         catch {

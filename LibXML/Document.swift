@@ -78,7 +78,7 @@ class libxmlDoc {
 
     func getRoot() -> Node {
         let node = xmlDocGetRootElement(ptr)
-        return Node(node, keepAlive: self)
+        return Node(node, doc: self)
     }
 
     func getInternalDTD() -> DTD {
@@ -109,7 +109,8 @@ public class Document {
     // Use a factory method instead of convenience initializers to avoid crashes (probably a bug in Swift).
     public static func create(data data: NSData, options: ParserOptions = .Default, encoding: NSStringEncoding? = nil) throws -> Document {
         let enc = try encoding.map(encodingName)
-        let doc = try libxmlDoc(context: ParserContext(), data: data, encoding: enc, options: options)
+        let ctx = try ParserContext()
+        let doc = try libxmlDoc(context: ctx, data: data, encoding: enc, options: options)
         return Document(doc: doc)
     }
 

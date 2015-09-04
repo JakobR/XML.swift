@@ -14,9 +14,7 @@ class ParserContext {
 
     init() throws {
         ptr = xmlNewParserCtxt()
-        guard ptr != nil else {
-            throw Error.MemoryError
-        }
+        guard ptr != nil else { throw Error.MemoryError }
     }
 
     deinit {
