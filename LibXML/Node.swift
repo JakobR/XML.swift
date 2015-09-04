@@ -12,7 +12,7 @@ import libxml2
 /// The different node types carried by an XML tree.
 ///
 /// Corresponds to libxml2's xmlElementType.
-public enum NodeType: UInt32 {
+public enum NodeType: xmlElementType.RawValue {
     case Element                = 1     // XML_ELEMENT_NODE
     case Attribute              = 2     // XML_ATTRIBUTE_NODE
     case Text                   = 3     // XML_TEXT_NODE

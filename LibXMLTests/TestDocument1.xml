@@ -5,6 +5,7 @@
     <!ATTLIST entry name CDATA #REQUIRED>
     <!ELEMENT value (#PCDATA)>
     <!ENTITY smth "something">
+    <!ENTITY blah "anything &amp; &smth;">
 ]>
 <root>
     <entry name="first entry">
@@ -13,5 +14,6 @@
     </entry>
     <entry name="second entry">
         <value>a &amp; &smth;</value>
+        <value>&blah;</value>
     </entry>
 </root>

@@ -42,8 +42,21 @@ class XMLDocumentTests: XCTestCase {
 
         expect { resolved.root.children[3].children[1].text }.to(equal("a & something"))
         expect { resolved.root.children[3].children[1].children.count }.to(equal(1))
+        expect { resolved.root.children[3].children[3].text }.to(equal("anything & something"))
         expect { unresolved.root.children[3].children[1].text }.to(equal("a & something"), description: "expected Node.content method to always substitute entities")
         expect { unresolved.root.children[3].children[1].children.count }.to(equal(2))
+    }
+
+    func testEntityList() {
+        let doc = try! XML.Document.create(data: data1)
+        let entities = doc.internalDTD.entities
+        expect { entities.count }.to(equal(2))
+        expect { entities[0].name }.to(equal("smth"))
+        expect { entities[0].content }.to(equal("something"))
+        expect { entities[0].orig }.to(equal("something"))
+        expect { entities[1].name }.to(equal("blah"))
+        expect { entities[1].content }.to(equal("anything &amp; &smth;"))
+        expect { entities[1].orig }.to(equal("anything &amp; &smth;"))
     }
 
 //    func testPerformanceExample() {
