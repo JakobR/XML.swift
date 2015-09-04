@@ -20,11 +20,14 @@ class ParserContext {
     }
 
     deinit {
-        print("Calling xmlFreeParserCtxt...")
         xmlFreeParserCtxt(ptr)
     }
 
     var isValid: Bool {
         return ptr.memory.valid != 0;
+    }
+
+    var lastErrorMessage: String? {
+        return String.fromCString(ptr.memory.lastError.message)
     }
 }

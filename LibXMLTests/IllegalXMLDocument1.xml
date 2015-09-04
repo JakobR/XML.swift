@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<root>
+    <entry name="first entry">
+        <value>a value</value>
+        <value>another value</value>
+    </root>

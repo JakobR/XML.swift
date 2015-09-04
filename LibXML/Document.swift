@@ -64,14 +64,15 @@ class libxmlDoc {
         // Need to set this function pointer to handle validation errors.
         // context.ptr.memory.vctxt.error = COpaquePointer(bitPattern: 0xDEAD)
         ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding ?? UnsafePointer<Int8>(), options.rawValue)
-        assert(ptr != nil)
+        guard ptr != nil else {
+            throw Error.ParseError(message: context.lastErrorMessage ?? "")
+        }
         guard context.isValid else {
-            throw Error.InvalidDocument
+            throw Error.InvalidDocument(message: context.lastErrorMessage ?? "")
         }
     }
 
     deinit {
-        print("Calling xmlFreeDoc...")
         xmlFreeDoc(ptr)
     }
 

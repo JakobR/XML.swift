@@ -33,6 +33,8 @@
 		36BD205A1B985E2F0088EC4B /* InvalidDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */; settings = {ASSET_TAGS = (); }; };
 		36BD205C1B985F970088EC4B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD205B1B985F970088EC4B /* Helper.swift */; settings = {ASSET_TAGS = (); }; };
 		36BD20661B9875A80088EC4B /* LibXML-Tests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */; settings = {ASSET_TAGS = (); }; };
+		36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20801B989AC00088EC4B /* NodeTypeTests.swift */; settings = {ASSET_TAGS = (); }; };
+		36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InvalidDocument1.xml; sourceTree = "<group>"; };
 		36BD205B1B985F970088EC4B /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "LibXML-Tests.xcconfig"; path = "LibXMLTests/LibXML-Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		36BD20801B989AC00088EC4B /* NodeTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeTypeTests.swift; sourceTree = "<group>"; };
+		36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IllegalXMLDocument1.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 				3657F7D91B6A1EBF00752463 /* Error.swift */,
 				3657F7DB1B6A20B500752463 /* ParserContext.swift */,
 				36BD204B1B9846080088EC4B /* Document tree */,
+				36CC62A01B99B0220060FC7E /* Xpath */,
 				3624382D1B69734300BB009C /* module.modulemap */,
 				3657F7D71B6A11D400752463 /* LibXML.xcconfig */,
 				3657F7E51B6A624400752463 /* Helper */,
@@ -172,9 +177,11 @@
 		3624380D1B69698A00BB009C /* LibXMLTests */ = {
 			isa = PBXGroup;
 			children = (
+				36BD20801B989AC00088EC4B /* NodeTypeTests.swift */,
 				3624380E1B69698A00BB009C /* XMLDocumentTests.swift */,
 				362438101B69698A00BB009C /* Info.plist */,
 				36BD20571B9859640088EC4B /* TestDocument1.xml */,
+				36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */,
 				36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */,
 				36BD205B1B985F970088EC4B /* Helper.swift */,
 				36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */,
@@ -214,6 +221,13 @@
 				3657F7DF1B6A267D00752463 /* Node.swift */,
 			);
 			name = "Document tree";
+			sourceTree = "<group>";
+		};
+		36CC62A01B99B0220060FC7E /* Xpath */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Xpath;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36BD20661B9875A80088EC4B /* LibXML-Tests.xcconfig in Resources */,
+				36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */,
 				36BD205A1B985E2F0088EC4B /* InvalidDocument1.xml in Resources */,
 				36BD20581B9859640088EC4B /* TestDocument1.xml in Resources */,
 			);
@@ -378,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */,
 				3624380F1B69698A00BB009C /* XMLDocumentTests.swift in Sources */,
 				36BD205C1B985F970088EC4B /* Helper.swift in Sources */,
 			);
