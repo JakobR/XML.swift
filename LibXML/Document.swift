@@ -51,10 +51,10 @@ private func encodingName(encoding: NSStringEncoding) throws -> [CChar] {
     return cString
 }
 
-/// Owns an xmlDocPtr and ensures correct clean-up.
-/// This is outside the XMLDocument class because the xmlDocPtr needs to be kept alive by child XMLNode instances, even
-/// if the parent XMLDocument is already deallocated.
-/// (This is basically used like an std::shared_ptr<xmlDoc>.)
+/// Owns an xmlDocPtr and ensures correct clean-up. There must be at most one libxmlDoc instance per xmlDoc structure.
+///
+/// This is outside the Document class because the xmlDocPtr needs to be kept alive by child Node instances, even if the parent Document is already deallocated.
+/// (The libxmlDoc basically functions as an std::shared_ptr<xmlDoc>.)
 class libxmlDoc {
     let ptr: xmlDocPtr
 

@@ -148,6 +148,10 @@ public class XPath {
     public init(_ expression: String, namespaces: [String:String] = [:]) throws {
         // TODO: Namespaces, variables, custom functions
         // (when adding this, we should probably re-use the XPathContext. (which makes this object very thread-unsafe, but then again, how thread-safe is the rest of this wrapper?))
+        // Solution for thread-unsafety:
+        // Provide a "copy" method that copies the context. (the xmlXPathCompExpr should be able to be shared between different threads?)
+        // This way the compilation only has to happen once even if someone needs multiple objects for different threads.
+        // (Every thread can make a copy from the previously prepared "master" XPath object.)
         assert(namespaces.count == 0, "XPath.evaluateOn: Namespace mappings not yet implemented")
 
         let context: XPathContext
@@ -168,17 +172,118 @@ public class XPath {
         guard obj != nil else {
             throw context.grabAndResetError() ?? XPathError(xmlError: nil)
         }
-        return XPathResult(ptr: obj)
+        return XPathResult(ptr: obj, onNode: node)
+    }
+
+    public func evaluateOn(doc: Document) throws -> XPathResult {
+        return try evaluateOn(doc.root)
+    }
+}
+
+private func NodesFromNodeSet(ns: xmlNodeSetPtr, doc: libxmlDoc) -> [Node]
+{
+    assert(ns != nil)
+    let na = ns.memory.nodeTab
+    assert(na != nil)
+    let xmlNodes = na.stride(to: na.advancedBy(Int(ns.memory.nodeNr)), by: 1)
+    return xmlNodes.map {
+        let xmlNode = $0.memory
+        assert(xmlNode.memory.doc == doc.ptr)
+        return Node(xmlNode, doc: doc)
+    }
+}
+
+// For users only the four basic types should be relevant: Node set, boolean, number, string.
+public enum XPathValue {
+    case NodeSet([Node])
+    case BoolValue(Bool)
+    case NumberValue(Double)
+    case StringValue(String)
+
+    case _Undefined
+    case _Point
+    case _Range
+    case _LocationSet
+    case _UserData
+    case _XSLTTree
+
+    /// Initialize the appropriate XPathValue for the given xmlXPathObject.
+    /// Does not free the xmlXPathObject.
+    private init(ptr: xmlXPathObjectPtr, onNode node: Node) {
+        assert(ptr != nil)
+        switch ptr.memory.type.rawValue {
+        case XPATH_NODESET.rawValue:
+            self = .NodeSet(NodesFromNodeSet(ptr.memory.nodesetval, doc: node.doc))
+        case XPATH_BOOLEAN.rawValue:
+            self = .BoolValue(ptr.memory.boolval != 0)
+        case XPATH_NUMBER.rawValue:
+            self = .NumberValue(ptr.memory.floatval)
+        case XPATH_STRING.rawValue:
+            assert(ptr.memory.stringval != nil) // TODO: Can/should we really assume that?
+            self = .StringValue(String.fromXMLString(ptr.memory.stringval)!)
+
+        case XPATH_UNDEFINED.rawValue:
+            debugPrint("Unexpected xmlXPathObjectType: XPATH_UNDEFINED")
+            self = ._Undefined
+        case XPATH_POINT.rawValue:
+            // Denotes a point, index ptr.memory.index in node xmlNodePtr(ptr.memory.user) according to code in xmlXPathDebugDumpObject
+            debugPrint("Unexpected xmlXPathObjectType: XPATH_POINT")
+            self = ._Point
+        case XPATH_RANGE.rawValue:
+            // Object is a range(?), see implementation of xmlXPathDebugDumpObject
+            debugPrint("Unexpected xmlXPathObjectType: XPATH_RANGE")
+            self = ._Range
+        case XPATH_LOCATIONSET.rawValue:
+            // Object is a location set(?) at xmlLocationSetPtr(ptr.memory.user)
+            debugPrint("Unexpected xmlXPathObjectType: XPATH_LOCATIONSET")
+            self = ._LocationSet
+        case XPATH_USERS.rawValue:
+            // User data, stored in ptr.memory.user (see xmlXPathWrapExternal)
+            debugPrint("Unexpected xmlXPathObjectType: XPATH_USERS")
+            self = ._UserData
+        case XPATH_XSLT_TREE.rawValue:
+            // Seems to use ptr.memory.nodesetval to store some nodes
+            debugPrint("Unexpected xmlXPathObjectType: XPATH_XSLT_TREE")
+            self = ._XSLTTree
+        default:
+            fatalError("Unknown xmlXPathObjectType: \(ptr.memory.type.rawValue)")
+        }
+
     }
 }
 
 public class XPathResult {
     private let ptr: xmlXPathObjectPtr
+    private let node: Node
+    public private(set) lazy var value: XPathValue = XPathValue(ptr: self.ptr, onNode: self.node)
 
     /// Wraps the given pointer and assumes ownership of the memory.
-    init(ptr: xmlXPathObjectPtr) {
+    private init(ptr: xmlXPathObjectPtr, onNode node: Node) {
+        assert(ptr != nil)
         self.ptr = ptr
-        assert(self.ptr != nil)
+        self.node = node
+    }
+
+    public func asBool() -> Bool {
+        return xmlXPathCastToBoolean(ptr) != 0
+    }
+
+    public func asNumber() -> Double {
+        return xmlXPathCastToNumber(ptr)
+    }
+
+    public func asString() -> String {
+        if ptr.memory.type == XPATH_STRING {
+            switch value {
+            case .StringValue(let s): return s
+            default: break
+            }
+        }
+        let cs = xmlXPathCastToString(ptr)
+        defer { xmlFree(cs) }
+        // xmlXPathCastToString only returns NULL if xmlStrdup fails, which is most likely due to a memory allocation error.
+        assert(cs != nil, "xmlXPathCastToString returned NULL") // better crash instead of silently returning wrong data
+        return String.fromXMLString(cs)!
     }
 
     deinit {

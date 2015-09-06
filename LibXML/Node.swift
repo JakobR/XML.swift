@@ -41,6 +41,8 @@ public enum NodeType: xmlElementType.RawValue {
     }
 }
 
+/// A thin wrapper around libxml2 xmlNode instances.
+/// A single libxml2 xmlNode instance might be wrapped by multiple Node instances at the same time (do not rely on identity of instances of this class!).
 public class Node {
     let ptr: xmlNodePtr
     let doc: libxmlDoc

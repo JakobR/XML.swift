@@ -13,7 +13,7 @@ extension String {
     /// Creates a new Swift string by copying an existing libxml2 string.
     /// Returns nil if the libxml2 string is NULL.
     ///
-    /// (Aborts the program if the libxml2 string is invalid.)
+    /// (Raises a fatalError if the libxml2 string is invalid, aborting the program.)
     static func fromXMLString(cs: UnsafePointer<xmlChar>) -> String? {
         // No string there? Return nil
         guard cs != nil else { return nil }

@@ -47,7 +47,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //                }
 
                 let xp = try XPath("//entry")
-                try xp.evaluateOn(doc.root)
+                let result = try xp.evaluateOn(doc)
+                print(result.asBool())
+                print(result.asNumber())
+                print(result.asString())
+                switch result.value {
+                case .NodeSet(let nodes): print(nodes.map { $0.name ?? "" })
+                default: fatalError("not a node set")
+                }
+
+                print(try XPath("1 + 2").evaluateOn(doc).asNumber())
             }
         }
         catch {
