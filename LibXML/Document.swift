@@ -82,7 +82,7 @@ class libxmlDoc {
     }
 
     func getInternalDTD() -> DTD {
-        return DTD(ptr.memory.intSubset, keepAlive: self)
+        return DTD(ptr.memory.intSubset, doc: self)
     }
 }
 

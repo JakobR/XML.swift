@@ -11,40 +11,44 @@ import libxml2
 
 public class DTD {
     private let ptr: xmlDtdPtr
-    private let keepAlive: libxmlDoc
+    private let doc: libxmlDoc
 
-    init(_ xmlDtd: xmlDtdPtr, keepAlive: libxmlDoc) {
-        self.ptr = xmlDtd
-        self.keepAlive = keepAlive
-        assert(self.ptr != nil && self.ptr.memory.type == XML_DTD_NODE)
+    init(_ ptr: xmlDtdPtr, doc: libxmlDoc) {
+        precondition(ptr != nil)
+        precondition(ptr.memory.type == XML_DTD_NODE)
+        precondition(ptr.memory.doc == doc.ptr)
+        self.ptr = ptr
+        self.doc = doc
     }
 
     public var entities: [Entity] {
-        return CLinkedList(self.ptr.memory.children)
+        return CLinkedList(ptr.memory.children)
             .filter { $0.memory.type == XML_ENTITY_DECL }
-            .map { Entity(xmlEntityPtr($0), keepAlive: self.keepAlive) }
+            .map { Entity(xmlEntityPtr($0), doc: doc) }
     }
 }
 
 public class Entity {
     private let ptr: xmlEntityPtr
-    private let keepAlive: libxmlDoc
+    private let doc: libxmlDoc
 
-    init(_ xmlEntity: xmlEntityPtr, keepAlive: libxmlDoc) {
-        self.ptr = xmlEntity
-        self.keepAlive = keepAlive
-        assert(self.ptr != nil && self.ptr.memory.type == XML_ENTITY_DECL)
+    init(_ ptr: xmlEntityPtr, doc: libxmlDoc) {
+        precondition(ptr != nil)
+        precondition(ptr.memory.type == XML_ENTITY_DECL)
+        precondition(ptr.memory.doc == doc.ptr)
+        self.ptr = ptr
+        self.doc = doc
     }
 
     public var name: String? {
-        return String.fromXMLString(self.ptr.memory.name)
+        return String.fromXMLString(ptr.memory.name)
     }
 
     public var orig: String? {
-        return String.fromXMLString(self.ptr.memory.orig)
+        return String.fromXMLString(ptr.memory.orig)
     }
 
     public var content: String? {
-        return String.fromXMLString(self.ptr.memory.content)
+        return String.fromXMLString(ptr.memory.content)
     }
 }

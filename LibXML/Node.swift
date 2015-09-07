@@ -48,20 +48,21 @@ public class Node {
     let doc: libxmlDoc
 
     init(_ ptr: xmlNodePtr, doc: libxmlDoc) {
+        precondition(ptr != nil)
+        precondition(ptr.memory.doc == doc.ptr)
         self.ptr = ptr
         self.doc = doc
-        assert(self.ptr != nil)
     }
 
     public var namespace: Namespace? {
-        guard self.ptr.memory.ns != nil else { return nil }
-        assert(self.ptr.memory.ns.memory.next == nil)
-        return Namespace(self.ptr.memory.ns, keepAlive: self.doc)
+        guard ptr.memory.ns != nil else { return nil }
+        assert(ptr.memory.ns.memory.next == nil)
+        return Namespace(ptr.memory.ns, doc: doc)
     }
 
-    public var type: NodeType { return NodeType(xmlType: self.ptr.memory.type) }
+    public var type: NodeType { return NodeType(xmlType: ptr.memory.type) }
 
-    public var name: String? { return String.fromXMLString(self.ptr.memory.name) }
+    public var name: String? { return String.fromXMLString(ptr.memory.name) }
 
     /// Read the text value of a node (either directly carried by the node if it is a text node, or the concatenated text of the node's children).
     /// Entity references are substituted.
@@ -69,24 +70,24 @@ public class Node {
         if (type == .Text || type == .CDATASection) {
             return String.fromXMLString(ptr.memory.content)
         } else {
-            let cs = xmlNodeGetContent(self.ptr)
+            let cs = xmlNodeGetContent(ptr)
             defer { xmlFree(cs) }
             return String.fromXMLString(cs)
         }
     }
 
     public var children: [Node] {
-        return CLinkedList(self.ptr.memory.children).map { Node($0, doc: self.doc) }
+        return CLinkedList(ptr.memory.children).map { Node($0, doc: doc) }
     }
 
     public var elements: [Node] {
-        return CLinkedList(self.ptr.memory.children)
+        return CLinkedList(ptr.memory.children)
             .filter { $0.memory.type == XML_ELEMENT_NODE }
-            .map { Node($0, doc: self.doc) }
+            .map { Node($0, doc: doc) }
     }
 
     public var attributes: [Attribute] {
-        return CLinkedList(self.ptr.memory.properties).map { Attribute($0, keepAlive: self.doc) }
+        return CLinkedList(ptr.memory.properties).map { Attribute($0, doc: doc) }
     }
 
     /// Attribute lookup (not namespace aware)

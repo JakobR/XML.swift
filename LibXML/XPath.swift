@@ -182,13 +182,13 @@ public class XPath {
 
 private func NodesFromNodeSet(ns: xmlNodeSetPtr, doc: libxmlDoc) -> [Node]
 {
-    assert(ns != nil)
+    precondition(ns != nil)
     let na = ns.memory.nodeTab
-    assert(na != nil)
+    precondition(na != nil)
     let xmlNodes = na.stride(to: na.advancedBy(Int(ns.memory.nodeNr)), by: 1)
     return xmlNodes.map {
         let xmlNode = $0.memory
-        assert(xmlNode.memory.doc == doc.ptr)
+        precondition(xmlNode.memory.doc == doc.ptr)
         return Node(xmlNode, doc: doc)
     }
 }
@@ -210,7 +210,8 @@ public enum XPathValue {
     /// Initialize the appropriate XPathValue for the given xmlXPathObject.
     /// Does not free the xmlXPathObject.
     private init(ptr: xmlXPathObjectPtr, onNode node: Node) {
-        assert(ptr != nil)
+        precondition(ptr != nil)
+
         switch ptr.memory.type.rawValue {
         case XPATH_NODESET.rawValue:
             self = .NodeSet(NodesFromNodeSet(ptr.memory.nodesetval, doc: node.doc))
@@ -219,7 +220,7 @@ public enum XPathValue {
         case XPATH_NUMBER.rawValue:
             self = .NumberValue(ptr.memory.floatval)
         case XPATH_STRING.rawValue:
-            assert(ptr.memory.stringval != nil) // TODO: Can/should we really assume that?
+            precondition(ptr.memory.stringval != nil) // TODO: Can/should we really assume that?
             self = .StringValue(String.fromXMLString(ptr.memory.stringval)!)
 
         case XPATH_UNDEFINED.rawValue:
@@ -259,7 +260,7 @@ public class XPathResult {
 
     /// Wraps the given pointer and assumes ownership of the memory.
     private init(ptr: xmlXPathObjectPtr, onNode node: Node) {
-        assert(ptr != nil)
+        precondition(ptr != nil)
         self.ptr = ptr
         self.node = node
     }
@@ -282,7 +283,7 @@ public class XPathResult {
         let cs = xmlXPathCastToString(ptr)
         defer { xmlFree(cs) }
         // xmlXPathCastToString only returns NULL if xmlStrdup fails, which is most likely due to a memory allocation error.
-        assert(cs != nil, "xmlXPathCastToString returned NULL") // better crash instead of silently returning wrong data
+        precondition(cs != nil, "xmlXPathCastToString returned NULL") // better crash instead of silently returning wrong data
         return String.fromXMLString(cs)!
     }
 
