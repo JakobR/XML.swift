@@ -10,25 +10,44 @@ import Foundation
 import libxml2
 
 public struct ParserOptions: OptionSetType {
+    /// Note: This is not the value passed to libxml2!
     public let rawValue: Int32
 
+    /// Note: This is not the value passed to libxml2!
     public init(rawValue: Int32) {
         self.rawValue = rawValue
+    }
+
+    public init(libxml2Value: Int32) {
+        self.rawValue = libxml2Value
+        self.exclusiveOrInPlace(.OptionsWithFlippedSemantics)
+        assert(self.libxml2Value == libxml2Value)
+    }
+
+    /// The value that is passed to libxml2.
+    public var libxml2Value: Int32 {
+        return self.exclusiveOr(.OptionsWithFlippedSemantics).rawValue
     }
 
     init(option: xmlParserOption) {
         self.rawValue = Int32(option.rawValue)
     }
 
+    /// These options have their meaning flipped compared to their libxml2 counterpart.
+    private static let OptionsWithFlippedSemantics = ParserOptions([.PrintWarnings, .PrintErrors])
+
     // TODO: Names
+    /// Default value: All options off.
     public static let Default               = ParserOptions(rawValue: 0)
     public static let RecoverOnError        = ParserOptions(option: XML_PARSE_RECOVER)
     public static let ResolveEntities       = ParserOptions(option: XML_PARSE_NOENT)
     public static let LoadExternalDTD       = ParserOptions(option: XML_PARSE_DTDLOAD)
     public static let AttributeDefaults     = ParserOptions(option: XML_PARSE_DTDATTR)
     public static let ValidateDTD           = ParserOptions(option: XML_PARSE_DTDVALID)
-    public static let SuppressErrors        = ParserOptions(option: XML_PARSE_NOERROR)
-    public static let SuppressWarnings      = ParserOptions(option: XML_PARSE_NOWARNING)
+    /// Instruct the parser to print errors to standard output.
+    public static let PrintErrors           = ParserOptions(option: XML_PARSE_NOERROR)      // semantics flipped
+    /// Instruct the parser to print warnings to standard output.
+    public static let PrintWarnings         = ParserOptions(option: XML_PARSE_NOWARNING)    // semantics flipped
     public static let Pedantic              = ParserOptions(option: XML_PARSE_PEDANTIC)
     public static let RemoveBlankNodes      = ParserOptions(option: XML_PARSE_NOBLANKS)
     public static let XINCLUDE              = ParserOptions(option: XML_PARSE_XINCLUDE)
@@ -58,12 +77,10 @@ private func encodingName(encoding: NSStringEncoding) throws -> [CChar] {
 class libxmlDoc {
     let ptr: xmlDocPtr
 
-    init(context: ParserContext, data: NSData, encoding: UnsafePointer<Int8>?, options: ParserOptions) throws {
+    init(context: ParserContext, data: NSData, encoding: UnsafePointer<CChar>?, options: ParserOptions) throws {
         print("Using libxml2 of version \(LIBXML_DOTTED_VERSION)")
         print("replace entities? \(context.ptr.memory.replaceEntities)  (should be zero)")
-        // Need to set this function pointer to handle validation errors.
-        // context.ptr.memory.vctxt.error = COpaquePointer(bitPattern: 0xDEAD)
-        ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding ?? UnsafePointer<Int8>(), options.rawValue)
+        ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding ?? UnsafePointer<CChar>(), options.libxml2Value)
         guard ptr != nil else {
             throw Error.ParseError(message: context.lastErrorMessage ?? "")
         }
