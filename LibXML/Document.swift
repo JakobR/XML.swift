@@ -64,12 +64,6 @@ public struct ParserOptions: OptionSetType {
 
 }
 
-private func encodingName(encoding: NSStringEncoding) throws -> [CChar] {
-    guard let encodingName = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(encoding)) as String? else { throw Error.UnknownEncoding }
-    guard let cString = encodingName.cStringUsingEncoding(NSASCIIStringEncoding) else { throw Error.UnknownEncoding }
-    return cString
-}
-
 /// Owns an xmlDocPtr and ensures correct clean-up. There must be at most one libxmlDoc instance per xmlDoc structure.
 ///
 /// This is outside the Document class because the xmlDocPtr needs to be kept alive by child Node instances, even if the parent Document is already deallocated.
@@ -77,10 +71,10 @@ private func encodingName(encoding: NSStringEncoding) throws -> [CChar] {
 class libxmlDoc {
     let ptr: xmlDocPtr
 
-    init(context: ParserContext, data: NSData, encoding: UnsafePointer<CChar>?, options: ParserOptions) throws {
+    init(context: ParserContext, data: NSData, encoding: UnsafePointer<CChar>, options: ParserOptions) throws {
         print("Using libxml2 of version \(LIBXML_DOTTED_VERSION)")
         print("replace entities? \(context.ptr.memory.replaceEntities)  (should be zero)")
-        ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<Int8>(data.bytes), CInt(data.length), nil, encoding ?? UnsafePointer<CChar>(), options.libxml2Value)
+        ptr = xmlCtxtReadMemory(context.ptr, UnsafePointer<CChar>(data.bytes), CInt(data.length), nil, encoding, options.libxml2Value)
         guard ptr != nil else {
             throw Error.ParseError(message: context.lastErrorMessage ?? "")
         }
@@ -125,10 +119,20 @@ public class Document {
 
     // Use a factory method instead of convenience initializers to avoid crashes (probably a bug in Swift).
     public static func create(data data: NSData, options: ParserOptions = .Default, encoding: NSStringEncoding? = nil) throws -> Document {
-        let enc = try encoding.map(encodingName)
         let ctx = try ParserContext()
-        let doc = try libxmlDoc(context: ctx, data: data, encoding: enc, options: options)
+        let encName = try encoding.map(encodingName)
+        let doc = try withOptionalCString(encName) { enc in
+            return try libxmlDoc(context: ctx, data: data, encoding: enc, options: options)
+        }
         return Document(doc: doc)
     }
 
+}
+
+private func encodingName(encoding: NSStringEncoding) throws -> String {
+    if let name = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(encoding)) as String? {
+        return name
+    } else {
+        throw Error.UnknownEncoding
+    }
 }

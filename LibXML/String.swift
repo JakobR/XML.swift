@@ -41,3 +41,12 @@ extension String {
     }
     */
 }
+
+/// Works like String.withCString, but on Optional<String>. Always calls f and returns its result.
+/// If str is nil, f will be passed a NULL pointer.
+func withOptionalCString<Result>(str: String?, @noescape f: UnsafePointer<CChar> throws -> Result) rethrows -> Result {
+    switch str {
+    case .None: return try f(nil)
+    case .Some(let s): return try s.withCString(f)
+    }
+}
