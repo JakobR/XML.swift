@@ -18,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let dict_url = NSURL(fileURLWithPath: "/Users/jakob/code/Dictionary/Data/JMDict_small")
 
+        print("LibXML.swift version: \(XMLVersionNumber)")
         print("Loading dictionary at \(dict_url)...")
 
         //var str = try NSString(contentsOfURL: dict_url, encoding: NSUTF8StringEncoding)

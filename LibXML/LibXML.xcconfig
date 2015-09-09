@@ -10,6 +10,8 @@ PRODUCT_NAME = XML
 
 APPLICATION_EXTENSION_API_ONLY = YES
 
+MODULEMAP_FILE                 = LibXML/module.modulemap
+
 // libxml2
 SWIFT_INCLUDE_PATHS = $(SRCROOT)/libxml2
 HEADER_SEARCH_PATHS = $(SDKROOT)/usr/include/libxml2

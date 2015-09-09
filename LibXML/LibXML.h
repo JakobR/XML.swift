@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 //! Project version number for LibXML.
-FOUNDATION_EXPORT double LibXMLVersionNumber;
+FOUNDATION_EXPORT double XMLVersionNumber;
 
 //! Project version string for LibXML.
-FOUNDATION_EXPORT const unsigned char LibXMLVersionString[];
+FOUNDATION_EXPORT const unsigned char XMLVersionString[];

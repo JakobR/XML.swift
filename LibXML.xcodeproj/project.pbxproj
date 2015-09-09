@@ -35,6 +35,7 @@
 		36BD205C1B985F970088EC4B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD205B1B985F970088EC4B /* Helper.swift */; settings = {ASSET_TAGS = (); }; };
 		36BD20661B9875A80088EC4B /* LibXML-Tests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */; settings = {ASSET_TAGS = (); }; };
 		36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20801B989AC00088EC4B /* NodeTypeTests.swift */; settings = {ASSET_TAGS = (); }; };
+		36C3685B1BA03A570094AB07 /* LibXMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C3685A1BA03A570094AB07 /* LibXMLTests.swift */; settings = {ASSET_TAGS = (); }; };
 		36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */; settings = {ASSET_TAGS = (); }; };
 		36CC62A41B99DB850060FC7E /* XPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A31B99DB850060FC7E /* XPath.swift */; settings = {ASSET_TAGS = (); }; };
 		36CC62A61B99F9D30060FC7E /* XPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A51B99F9D30060FC7E /* XPathTests.swift */; settings = {ASSET_TAGS = (); }; };
@@ -105,6 +106,7 @@
 		36BD205B1B985F970088EC4B /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "LibXML-Tests.xcconfig"; path = "LibXMLTests/LibXML-Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		36BD20801B989AC00088EC4B /* NodeTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeTypeTests.swift; sourceTree = "<group>"; };
+		36C3685A1BA03A570094AB07 /* LibXMLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibXMLTests.swift; sourceTree = "<group>"; };
 		36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IllegalXMLDocument1.xml; sourceTree = "<group>"; };
 		36CC62A31B99DB850060FC7E /* XPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPath.swift; sourceTree = "<group>"; };
 		36CC62A51B99F9D30060FC7E /* XPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPathTests.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		3624380D1B69698A00BB009C /* LibXMLTests */ = {
 			isa = PBXGroup;
 			children = (
+				36C3685A1BA03A570094AB07 /* LibXMLTests.swift */,
 				36BD20801B989AC00088EC4B /* NodeTypeTests.swift */,
 				3624380E1B69698A00BB009C /* XMLDocumentTests.swift */,
 				36CC62A51B99F9D30060FC7E /* XPathTests.swift */,
@@ -408,6 +411,7 @@
 				3624380F1B69698A00BB009C /* XMLDocumentTests.swift in Sources */,
 				36BD205C1B985F970088EC4B /* Helper.swift in Sources */,
 				36CC62A61B99F9D30060FC7E /* XPathTests.swift in Sources */,
+				36C3685B1BA03A570094AB07 /* LibXMLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
