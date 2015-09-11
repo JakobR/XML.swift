@@ -184,12 +184,10 @@ private func NodesFromNodeSet(ns: xmlNodeSetPtr, doc: libxmlDoc) -> [Node]
 {
     precondition(ns != nil)
     let na = ns.memory.nodeTab
-    precondition(na != nil)
+    precondition((na == nil) == (ns.memory.nodeNr == 0))  // read outer "==" as "if and only if"
     let xmlNodes = na.stride(to: na.advancedBy(Int(ns.memory.nodeNr)), by: 1)
     return xmlNodes.map {
-        let xmlNode = $0.memory
-        precondition(xmlNode.memory.doc == doc.ptr)
-        return Node(xmlNode, doc: doc)
+        return Node($0.memory, doc: doc)
     }
 }
 
