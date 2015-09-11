@@ -1,5 +1,5 @@
 framework module XML {
-    umbrella header "LibXML.h"
+    umbrella header "XML.h"
 
     export *
     module * { export * }

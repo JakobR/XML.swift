@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "362437FE1B69698A00BB009C"
                BuildableName = "XML.framework"
-               BlueprintName = "LibXML"
-               ReferencedContainer = "container:LibXML.xcodeproj">
+               BlueprintName = "XML"
+               ReferencedContainer = "container:XML.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "362438081B69698A00BB009C"
-               BuildableName = "LibXMLTests.xctest"
-               BlueprintName = "LibXMLTests"
-               ReferencedContainer = "container:LibXML.xcodeproj">
+               BuildableName = "XMLTests.xctest"
+               BlueprintName = "XMLTests"
+               ReferencedContainer = "container:XML.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "362437FE1B69698A00BB009C"
             BuildableName = "XML.framework"
-            BlueprintName = "LibXML"
-            ReferencedContainer = "container:LibXML.xcodeproj">
+            BlueprintName = "XML"
+            ReferencedContainer = "container:XML.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,8 +66,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "362437FE1B69698A00BB009C"
             BuildableName = "XML.framework"
-            BlueprintName = "LibXML"
-            ReferencedContainer = "container:LibXML.xcodeproj">
+            BlueprintName = "XML"
+            ReferencedContainer = "container:XML.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,8 +84,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "362437FE1B69698A00BB009C"
             BuildableName = "XML.framework"
-            BlueprintName = "LibXML"
-            ReferencedContainer = "container:LibXML.xcodeproj">
+            BlueprintName = "XML"
+            ReferencedContainer = "container:XML.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

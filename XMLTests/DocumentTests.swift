@@ -18,6 +18,8 @@ class XMLDocumentTests: XCTestCase {
 
     func testDocumentParsing() {
         expect { try XML.Document.create(data: self.data1) }.notTo(throwError())
+        expect { try XML.Document.create(data: self.data1, encoding: NSUTF8StringEncoding) }.notTo(throwError())
+        expect { try XML.Document.create(data: self.data1, encoding: 1234567) }.to(throwError(Error.UnknownEncoding))
         expect { try XML.Document.create(data: self.illegalXMLData1) }.to(throwError { (error: XML.Error) in
             switch error {
             case Error.ParseError(let message): expect(message).toNot(beEmpty(), description: "expected a non-empty error message")
@@ -40,23 +42,23 @@ class XMLDocumentTests: XCTestCase {
         let resolved = try! XML.Document.create(data: data1, options: .ResolveEntities)
         let unresolved = try! XML.Document.create(data: data1)
 
-        expect { resolved.root.children[3].children[1].text }.to(equal("a & something"))
-        expect { resolved.root.children[3].children[1].children.count }.to(equal(1))
-        expect { resolved.root.children[3].children[3].text }.to(equal("anything & something"))
+        expect { resolved.root.children[3].children[1].text } == "a & something"
+        expect { resolved.root.children[3].children[1].children.count } == 1
+        expect { resolved.root.children[3].children[3].text } == "anything & something"
         expect { unresolved.root.children[3].children[1].text }.to(equal("a & something"), description: "expected Node.content method to always substitute entities")
-        expect { unresolved.root.children[3].children[1].children.count }.to(equal(2))
+        expect { unresolved.root.children[3].children[1].children.count } == 2
     }
 
     func testEntityList() {
         let doc = try! XML.Document.create(data: data1)
         let entities = doc.internalDTD.entities
-        expect { entities.count }.to(equal(2))
-        expect { entities[0].name }.to(equal("smth"))
-        expect { entities[0].content }.to(equal("something"))
-        expect { entities[0].orig }.to(equal("something"))
-        expect { entities[1].name }.to(equal("blah"))
-        expect { entities[1].content }.to(equal("anything &amp; &smth;"))
-        expect { entities[1].orig }.to(equal("anything &amp; &smth;"))
+        expect { entities.count } == 2
+        expect { entities[0].name } == "smth"
+        expect { entities[0].content } == "something"
+        expect { entities[0].orig } == "something"
+        expect { entities[1].name } == "blah"
+        expect { entities[1].content } == "anything &amp; &smth;"
+        expect { entities[1].orig } == "anything &amp; &smth;"
     }
 
     //    func testPerformanceExample() {

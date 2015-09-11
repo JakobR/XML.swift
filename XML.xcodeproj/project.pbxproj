@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3622D3DC1B9A460E002A0FB0 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622D3DB1B9A460E002A0FB0 /* Box.swift */; settings = {ASSET_TAGS = (); }; };
-		362438031B69698A00BB009C /* LibXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 362438021B69698A00BB009C /* LibXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3622D3DC1B9A460E002A0FB0 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3622D3DB1B9A460E002A0FB0 /* Box.swift */; };
+		362438031B69698A00BB009C /* XML.h in Headers */ = {isa = PBXBuildFile; fileRef = 362438021B69698A00BB009C /* XML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3624380A1B69698A00BB009C /* XML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362437FF1B69698A00BB009C /* XML.framework */; };
-		3624380F1B69698A00BB009C /* XMLDocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624380E1B69698A00BB009C /* XMLDocumentTests.swift */; };
+		3624380F1B69698A00BB009C /* DocumentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3624380E1B69698A00BB009C /* DocumentTests.swift */; };
 		362438261B696A7400BB009C /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 362438241B696A7400BB009C /* libxml2.2.tbd */; };
 		362438271B696A7400BB009C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 362438251B696A7400BB009C /* libxml2.tbd */; };
 		3624382A1B696B4700BB009C /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362438291B696B4700BB009C /* Document.swift */; };
@@ -25,20 +25,19 @@
 		3657F7E01B6A267D00752463 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DF1B6A267D00752463 /* Node.swift */; };
 		3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E11B6A313A00752463 /* CLinkedList.swift */; };
 		3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */; };
-		36BD20441B983FF20088EC4B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20431B983FF20088EC4B /* String.swift */; settings = {ASSET_TAGS = (); }; };
-		36BD20461B9843370088EC4B /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20451B9843370088EC4B /* Namespace.swift */; settings = {ASSET_TAGS = (); }; };
-		36BD204A1B9845E70088EC4B /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20491B9845E70088EC4B /* Attribute.swift */; settings = {ASSET_TAGS = (); }; };
+		36BD20441B983FF20088EC4B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20431B983FF20088EC4B /* String.swift */; };
+		36BD20461B9843370088EC4B /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20451B9843370088EC4B /* Namespace.swift */; };
+		36BD204A1B9845E70088EC4B /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20491B9845E70088EC4B /* Attribute.swift */; };
 		36BD20531B98577A0088EC4B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BD20521B98577A0088EC4B /* Nimble.framework */; };
 		36BD20561B98586F0088EC4B /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 36BD20521B98577A0088EC4B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		36BD20581B9859640088EC4B /* TestDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20571B9859640088EC4B /* TestDocument1.xml */; settings = {ASSET_TAGS = (); }; };
-		36BD205A1B985E2F0088EC4B /* InvalidDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */; settings = {ASSET_TAGS = (); }; };
-		36BD205C1B985F970088EC4B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD205B1B985F970088EC4B /* Helper.swift */; settings = {ASSET_TAGS = (); }; };
-		36BD20661B9875A80088EC4B /* LibXML-Tests.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */; settings = {ASSET_TAGS = (); }; };
-		36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20801B989AC00088EC4B /* NodeTypeTests.swift */; settings = {ASSET_TAGS = (); }; };
-		36C3685B1BA03A570094AB07 /* LibXMLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C3685A1BA03A570094AB07 /* LibXMLTests.swift */; settings = {ASSET_TAGS = (); }; };
-		36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */; settings = {ASSET_TAGS = (); }; };
-		36CC62A41B99DB850060FC7E /* XPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A31B99DB850060FC7E /* XPath.swift */; settings = {ASSET_TAGS = (); }; };
-		36CC62A61B99F9D30060FC7E /* XPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A51B99F9D30060FC7E /* XPathTests.swift */; settings = {ASSET_TAGS = (); }; };
+		36BD20581B9859640088EC4B /* TestDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20571B9859640088EC4B /* TestDocument1.xml */; };
+		36BD205A1B985E2F0088EC4B /* InvalidDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */; };
+		36BD205C1B985F970088EC4B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD205B1B985F970088EC4B /* Helper.swift */; };
+		36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20801B989AC00088EC4B /* NodeTypeTests.swift */; };
+		36C3685B1BA03A570094AB07 /* FrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C3685A1BA03A570094AB07 /* FrameworkTests.swift */; };
+		36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */; };
+		36CC62A41B99DB850060FC7E /* XPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A31B99DB850060FC7E /* XPath.swift */; };
+		36CC62A61B99F9D30060FC7E /* XPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A51B99F9D30060FC7E /* XPathTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,14 +46,14 @@
 			containerPortal = 362437F61B69698A00BB009C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 362437FE1B69698A00BB009C;
-			remoteInfo = LibXML;
+			remoteInfo = XML;
 		};
 		3657F7D31B69838900752463 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 362437F61B69698A00BB009C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 362437FE1B69698A00BB009C;
-			remoteInfo = LibXML;
+			remoteInfo = XML;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -74,23 +73,23 @@
 /* Begin PBXFileReference section */
 		3622D3DB1B9A460E002A0FB0 /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		362437FF1B69698A00BB009C /* XML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		362438021B69698A00BB009C /* LibXML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibXML.h; sourceTree = "<group>"; };
+		362438021B69698A00BB009C /* XML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XML.h; sourceTree = "<group>"; };
 		362438041B69698A00BB009C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		362438091B69698A00BB009C /* LibXMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibXMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3624380E1B69698A00BB009C /* XMLDocumentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLDocumentTests.swift; sourceTree = "<group>"; };
+		362438091B69698A00BB009C /* XMLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XMLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3624380E1B69698A00BB009C /* DocumentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTests.swift; sourceTree = "<group>"; };
 		362438101B69698A00BB009C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		362438241B696A7400BB009C /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		362438251B696A7400BB009C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		362438291B696B4700BB009C /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		3624382D1B69734300BB009C /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		3624382E1B69775500BB009C /* libxml2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libxml2; sourceTree = "<group>"; };
-		3657F7A91B697AF200752463 /* LibXML-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LibXML-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3657F7A91B697AF200752463 /* XML-ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XML-ExampleApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3657F7AB1B697AF200752463 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3657F7AD1B697AF200752463 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3657F7B01B697AF300752463 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3657F7B21B697AF300752463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3657F7D71B6A11D400752463 /* LibXML.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LibXML.xcconfig; sourceTree = "<group>"; };
-		3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "LibXML-App.xcconfig"; sourceTree = "<group>"; };
+		3657F7D71B6A11D400752463 /* XML.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = XML.xcconfig; sourceTree = "<group>"; };
+		3657F7D81B6A18BB00752463 /* XML-ExampleApp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "XML-ExampleApp.xcconfig"; sourceTree = "<group>"; };
 		3657F7D91B6A1EBF00752463 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		3657F7DB1B6A20B500752463 /* ParserContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserContext.swift; sourceTree = "<group>"; };
 		3657F7DD1B6A224A00752463 /* DTD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTD.swift; sourceTree = "<group>"; };
@@ -104,9 +103,9 @@
 		36BD20571B9859640088EC4B /* TestDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestDocument1.xml; sourceTree = "<group>"; };
 		36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InvalidDocument1.xml; sourceTree = "<group>"; };
 		36BD205B1B985F970088EC4B /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "LibXML-Tests.xcconfig"; path = "LibXMLTests/LibXML-Tests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		36BD20651B9875A80088EC4B /* XMLTests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = XMLTests.xcconfig; sourceTree = "<group>"; };
 		36BD20801B989AC00088EC4B /* NodeTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeTypeTests.swift; sourceTree = "<group>"; };
-		36C3685A1BA03A570094AB07 /* LibXMLTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibXMLTests.swift; sourceTree = "<group>"; };
+		36C3685A1BA03A570094AB07 /* FrameworkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkTests.swift; sourceTree = "<group>"; };
 		36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IllegalXMLDocument1.xml; sourceTree = "<group>"; };
 		36CC62A31B99DB850060FC7E /* XPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPath.swift; sourceTree = "<group>"; };
 		36CC62A51B99F9D30060FC7E /* XPathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPathTests.swift; sourceTree = "<group>"; };
@@ -148,10 +147,10 @@
 				36BD20521B98577A0088EC4B /* Nimble.framework */,
 				362438241B696A7400BB009C /* libxml2.2.tbd */,
 				362438251B696A7400BB009C /* libxml2.tbd */,
-				362438011B69698A00BB009C /* LibXML */,
-				3624380D1B69698A00BB009C /* LibXMLTests */,
+				362438011B69698A00BB009C /* XML */,
+				3624380D1B69698A00BB009C /* XMLTests */,
 				3624382E1B69775500BB009C /* libxml2 */,
-				3657F7AA1B697AF200752463 /* LibXML-App */,
+				3657F7AA1B697AF200752463 /* XML-ExampleApp */,
 				362438001B69698A00BB009C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -160,55 +159,55 @@
 			isa = PBXGroup;
 			children = (
 				362437FF1B69698A00BB009C /* XML.framework */,
-				362438091B69698A00BB009C /* LibXMLTests.xctest */,
-				3657F7A91B697AF200752463 /* LibXML-App.app */,
+				362438091B69698A00BB009C /* XMLTests.xctest */,
+				3657F7A91B697AF200752463 /* XML-ExampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		362438011B69698A00BB009C /* LibXML */ = {
+		362438011B69698A00BB009C /* XML */ = {
 			isa = PBXGroup;
 			children = (
-				362438021B69698A00BB009C /* LibXML.h */,
+				362438021B69698A00BB009C /* XML.h */,
 				362438041B69698A00BB009C /* Info.plist */,
 				3657F7D91B6A1EBF00752463 /* Error.swift */,
 				3657F7DB1B6A20B500752463 /* ParserContext.swift */,
 				36BD204B1B9846080088EC4B /* Document tree */,
 				36CC62A01B99B0220060FC7E /* XPath */,
 				3624382D1B69734300BB009C /* module.modulemap */,
-				3657F7D71B6A11D400752463 /* LibXML.xcconfig */,
+				3657F7D71B6A11D400752463 /* XML.xcconfig */,
 				3657F7E51B6A624400752463 /* Helper */,
 			);
-			path = LibXML;
+			path = XML;
 			sourceTree = "<group>";
 		};
-		3624380D1B69698A00BB009C /* LibXMLTests */ = {
+		3624380D1B69698A00BB009C /* XMLTests */ = {
 			isa = PBXGroup;
 			children = (
-				36C3685A1BA03A570094AB07 /* LibXMLTests.swift */,
+				36C3685A1BA03A570094AB07 /* FrameworkTests.swift */,
 				36BD20801B989AC00088EC4B /* NodeTypeTests.swift */,
-				3624380E1B69698A00BB009C /* XMLDocumentTests.swift */,
+				3624380E1B69698A00BB009C /* DocumentTests.swift */,
 				36CC62A51B99F9D30060FC7E /* XPathTests.swift */,
 				362438101B69698A00BB009C /* Info.plist */,
 				36BD20571B9859640088EC4B /* TestDocument1.xml */,
 				36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */,
 				36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */,
 				36BD205B1B985F970088EC4B /* Helper.swift */,
-				36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */,
+				36BD20651B9875A80088EC4B /* XMLTests.xcconfig */,
 			);
-			path = LibXMLTests;
+			path = XMLTests;
 			sourceTree = "<group>";
 		};
-		3657F7AA1B697AF200752463 /* LibXML-App */ = {
+		3657F7AA1B697AF200752463 /* XML-ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
 				3657F7AB1B697AF200752463 /* AppDelegate.swift */,
 				3657F7AD1B697AF200752463 /* Assets.xcassets */,
 				3657F7AF1B697AF300752463 /* MainMenu.xib */,
 				3657F7B21B697AF300752463 /* Info.plist */,
-				3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */,
+				3657F7D81B6A18BB00752463 /* XML-ExampleApp.xcconfig */,
 			);
-			path = "LibXML-App";
+			path = "XML-ExampleApp";
 			sourceTree = "<group>";
 		};
 		3657F7E51B6A624400752463 /* Helper */ = {
@@ -249,16 +248,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				362438031B69698A00BB009C /* LibXML.h in Headers */,
+				362438031B69698A00BB009C /* XML.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		362437FE1B69698A00BB009C /* LibXML */ = {
+		362437FE1B69698A00BB009C /* XML */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 362438131B69698A00BB009C /* Build configuration list for PBXNativeTarget "LibXML" */;
+			buildConfigurationList = 362438131B69698A00BB009C /* Build configuration list for PBXNativeTarget "XML" */;
 			buildPhases = (
 				362437FA1B69698A00BB009C /* Sources */,
 				362437FB1B69698A00BB009C /* Frameworks */,
@@ -269,14 +268,14 @@
 			);
 			dependencies = (
 			);
-			name = LibXML;
-			productName = LibXML;
+			name = XML;
+			productName = XML;
 			productReference = 362437FF1B69698A00BB009C /* XML.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		362438081B69698A00BB009C /* LibXMLTests */ = {
+		362438081B69698A00BB009C /* XMLTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 362438161B69698A00BB009C /* Build configuration list for PBXNativeTarget "LibXMLTests" */;
+			buildConfigurationList = 362438161B69698A00BB009C /* Build configuration list for PBXNativeTarget "XMLTests" */;
 			buildPhases = (
 				362438051B69698A00BB009C /* Sources */,
 				362438061B69698A00BB009C /* Frameworks */,
@@ -288,14 +287,14 @@
 			dependencies = (
 				3624380C1B69698A00BB009C /* PBXTargetDependency */,
 			);
-			name = LibXMLTests;
-			productName = LibXMLTests;
-			productReference = 362438091B69698A00BB009C /* LibXMLTests.xctest */;
+			name = XMLTests;
+			productName = XMLTests;
+			productReference = 362438091B69698A00BB009C /* XMLTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3657F7A81B697AF200752463 /* LibXML-App */ = {
+		3657F7A81B697AF200752463 /* XML-ExampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3657F7C91B697AF300752463 /* Build configuration list for PBXNativeTarget "LibXML-App" */;
+			buildConfigurationList = 3657F7C91B697AF300752463 /* Build configuration list for PBXNativeTarget "XML-ExampleApp" */;
 			buildPhases = (
 				3657F7A51B697AF200752463 /* Sources */,
 				3657F7A61B697AF200752463 /* Frameworks */,
@@ -306,9 +305,9 @@
 			dependencies = (
 				3657F7D41B69838900752463 /* PBXTargetDependency */,
 			);
-			name = "LibXML-App";
-			productName = "LibXML-App";
-			productReference = 3657F7A91B697AF200752463 /* LibXML-App.app */;
+			name = "XML-ExampleApp";
+			productName = "XML-ExampleApp";
+			productReference = 3657F7A91B697AF200752463 /* XML-ExampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -318,7 +317,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Jakob Rath";
 				TargetAttributes = {
 					362437FE1B69698A00BB009C = {
@@ -332,7 +331,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 362437F91B69698A00BB009C /* Build configuration list for PBXProject "LibXML" */;
+			buildConfigurationList = 362437F91B69698A00BB009C /* Build configuration list for PBXProject "XML" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -345,9 +344,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				362437FE1B69698A00BB009C /* LibXML */,
-				362438081B69698A00BB009C /* LibXMLTests */,
-				3657F7A81B697AF200752463 /* LibXML-App */,
+				362437FE1B69698A00BB009C /* XML */,
+				362438081B69698A00BB009C /* XMLTests */,
+				3657F7A81B697AF200752463 /* XML-ExampleApp */,
 			);
 		};
 /* End PBXProject section */
@@ -365,7 +364,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36BD20661B9875A80088EC4B /* LibXML-Tests.xcconfig in Resources */,
 				36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */,
 				36BD205A1B985E2F0088EC4B /* InvalidDocument1.xml in Resources */,
 				36BD20581B9859640088EC4B /* TestDocument1.xml in Resources */,
@@ -408,10 +406,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */,
-				3624380F1B69698A00BB009C /* XMLDocumentTests.swift in Sources */,
+				3624380F1B69698A00BB009C /* DocumentTests.swift in Sources */,
 				36BD205C1B985F970088EC4B /* Helper.swift in Sources */,
 				36CC62A61B99F9D30060FC7E /* XPathTests.swift in Sources */,
-				36C3685B1BA03A570094AB07 /* LibXMLTests.swift in Sources */,
+				36C3685B1BA03A570094AB07 /* FrameworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,12 +426,12 @@
 /* Begin PBXTargetDependency section */
 		3624380C1B69698A00BB009C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 362437FE1B69698A00BB009C /* LibXML */;
+			target = 362437FE1B69698A00BB009C /* XML */;
 			targetProxy = 3624380B1B69698A00BB009C /* PBXContainerItemProxy */;
 		};
 		3657F7D41B69838900752463 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 362437FE1B69698A00BB009C /* LibXML */;
+			target = 362437FE1B69698A00BB009C /* XML */;
 			targetProxy = 3657F7D31B69838900752463 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -536,7 +534,7 @@
 		};
 		362438141B69698A00BB009C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3657F7D71B6A11D400752463 /* LibXML.xcconfig */;
+			baseConfigurationReference = 3657F7D71B6A11D400752463 /* XML.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -545,10 +543,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = LibXML/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eu.jakobrath.LibXML;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -556,7 +552,7 @@
 		};
 		362438151B69698A00BB009C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3657F7D71B6A11D400752463 /* LibXML.xcconfig */;
+			baseConfigurationReference = 3657F7D71B6A11D400752463 /* XML.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -565,70 +561,68 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = LibXML/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eu.jakobrath.LibXML;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 		362438171B69698A00BB009C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */;
+			baseConfigurationReference = 36BD20651B9875A80088EC4B /* XMLTests.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = LibXMLTests/Info.plist;
+				INFOPLIST_FILE = XMLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eu.jakobrath.LibXMLTests;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.jakobrath.XMLTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		362438181B69698A00BB009C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36BD20651B9875A80088EC4B /* LibXML-Tests.xcconfig */;
+			baseConfigurationReference = 36BD20651B9875A80088EC4B /* XMLTests.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = LibXMLTests/Info.plist;
+				INFOPLIST_FILE = XMLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eu.jakobrath.LibXMLTests;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.jakobrath.XMLTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 		3657F7CA1B697AF300752463 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */;
+			baseConfigurationReference = 3657F7D81B6A18BB00752463 /* XML-ExampleApp.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "LibXML-App/Info.plist";
+				INFOPLIST_FILE = "XML-ExampleApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "eu.jakobrath.LibXML-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "eu.jakobrath.XML-ExampleApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		3657F7CB1B697AF300752463 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3657F7D81B6A18BB00752463 /* LibXML-App.xcconfig */;
+			baseConfigurationReference = 3657F7D81B6A18BB00752463 /* XML-ExampleApp.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "LibXML-App/Info.plist";
+				INFOPLIST_FILE = "XML-ExampleApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "eu.jakobrath.LibXML-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "eu.jakobrath.XML-ExampleApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -636,7 +630,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		362437F91B69698A00BB009C /* Build configuration list for PBXProject "LibXML" */ = {
+		362437F91B69698A00BB009C /* Build configuration list for PBXProject "XML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				362438111B69698A00BB009C /* Debug */,
@@ -645,7 +639,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		362438131B69698A00BB009C /* Build configuration list for PBXNativeTarget "LibXML" */ = {
+		362438131B69698A00BB009C /* Build configuration list for PBXNativeTarget "XML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				362438141B69698A00BB009C /* Debug */,
@@ -654,7 +648,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		362438161B69698A00BB009C /* Build configuration list for PBXNativeTarget "LibXMLTests" */ = {
+		362438161B69698A00BB009C /* Build configuration list for PBXNativeTarget "XMLTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				362438171B69698A00BB009C /* Debug */,
@@ -663,7 +657,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3657F7C91B697AF300752463 /* Build configuration list for PBXNativeTarget "LibXML-App" */ = {
+		3657F7C91B697AF300752463 /* Build configuration list for PBXNativeTarget "XML-ExampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3657F7CA1B697AF300752463 /* Debug */,

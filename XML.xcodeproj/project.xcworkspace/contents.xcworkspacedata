@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:LibXML.xcodeproj">
+      location = "self:/Users/jakob/code/XML.swift/XML.xcodeproj">
    </FileRef>
 </Workspace>
