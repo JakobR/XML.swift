@@ -11,10 +11,36 @@ import Nimble
 @testable import XML
 import libxml2
 
-class NodeTypeTests: XCTestCase {
+class NodeTests: XCTestCase {
+
+    var data1: NSData { return LoadDataForResource("TestDocument1", withExtension: "xml")! }
+    var doc1: Document { return try! Document.create(data: data1) }
+
+    func testProperties() {
+        // <entry> element
+        expect { self.doc1.root.children[1].type } == NodeType.Element
+        expect { self.doc1.root.children[1].name } == "entry"
+        expect { self.doc1.root.children[1].text } == "\n        a value\n        another value\n    "
+        expect { self.doc1.root.children[1].content }.to(beNil())
+        // <value> element
+        expect { self.doc1.root.children[1].children[1].type } == NodeType.Element
+        expect { self.doc1.root.children[1].children[1].name } == "value"
+        expect { self.doc1.root.children[1].children[1].text } == "a value"
+        expect { self.doc1.root.children[1].children[1].content }.to(beNil())
+        // text node in <value>
+        expect { self.doc1.root.children[1].children[1].children[0].type } == NodeType.Text
+        expect { self.doc1.root.children[1].children[1].children[0].name } == "text"
+        expect { self.doc1.root.children[1].children[1].children[0].text } == "a value"
+        expect { self.doc1.root.children[1].children[1].children[0].content } == "a value"
+        // entity reference &smth; in <value>
+        expect { self.doc1.root.children[3].children[1].children[1].type } == NodeType.EntityReference
+        expect { self.doc1.root.children[3].children[1].children[1].name } == "smth"
+        expect { self.doc1.root.children[3].children[1].children[1].text } == "something"
+        expect { self.doc1.root.children[3].children[1].children[1].content } == "something"
+    }
 
     /// Make sure the NodeType values do not diverge from the ones defined in libxml2.
-    func testValues() {
+    func testNodeTypeValues() {
         let values = [
             (NodeType.Element,                  XML_ELEMENT_NODE),
             (NodeType.Attribute,                XML_ATTRIBUTE_NODE),

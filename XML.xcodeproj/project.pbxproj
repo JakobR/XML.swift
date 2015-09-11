@@ -33,7 +33,7 @@
 		36BD20581B9859640088EC4B /* TestDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20571B9859640088EC4B /* TestDocument1.xml */; };
 		36BD205A1B985E2F0088EC4B /* InvalidDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */; };
 		36BD205C1B985F970088EC4B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD205B1B985F970088EC4B /* Helper.swift */; };
-		36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20801B989AC00088EC4B /* NodeTypeTests.swift */; };
+		36BD20811B989AC00088EC4B /* NodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20801B989AC00088EC4B /* NodeTests.swift */; };
 		36C3685B1BA03A570094AB07 /* FrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C3685A1BA03A570094AB07 /* FrameworkTests.swift */; };
 		36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */ = {isa = PBXBuildFile; fileRef = 36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */; };
 		36CC62A41B99DB850060FC7E /* XPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC62A31B99DB850060FC7E /* XPath.swift */; };
@@ -104,7 +104,7 @@
 		36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InvalidDocument1.xml; sourceTree = "<group>"; };
 		36BD205B1B985F970088EC4B /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		36BD20651B9875A80088EC4B /* XMLTests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = XMLTests.xcconfig; sourceTree = "<group>"; };
-		36BD20801B989AC00088EC4B /* NodeTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeTypeTests.swift; sourceTree = "<group>"; };
+		36BD20801B989AC00088EC4B /* NodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeTests.swift; sourceTree = "<group>"; };
 		36C3685A1BA03A570094AB07 /* FrameworkTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkTests.swift; sourceTree = "<group>"; };
 		36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IllegalXMLDocument1.xml; sourceTree = "<group>"; };
 		36CC62A31B99DB850060FC7E /* XPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPath.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				36C3685A1BA03A570094AB07 /* FrameworkTests.swift */,
-				36BD20801B989AC00088EC4B /* NodeTypeTests.swift */,
+				36BD20801B989AC00088EC4B /* NodeTests.swift */,
 				3624380E1B69698A00BB009C /* DocumentTests.swift */,
 				36CC62A51B99F9D30060FC7E /* XPathTests.swift */,
 				362438101B69698A00BB009C /* Info.plist */,
@@ -405,7 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36BD20811B989AC00088EC4B /* NodeTypeTests.swift in Sources */,
+				36BD20811B989AC00088EC4B /* NodeTests.swift in Sources */,
 				3624380F1B69698A00BB009C /* DocumentTests.swift in Sources */,
 				36BD205C1B985F970088EC4B /* Helper.swift in Sources */,
 				36CC62A61B99F9D30060FC7E /* XPathTests.swift in Sources */,

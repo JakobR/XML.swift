@@ -76,6 +76,11 @@ public class Node {
         }
     }
 
+    /// The content directly carried by the node, if applicable.
+    public var content: String? {
+        return String.fromXMLString(ptr.memory.content)
+    }
+
     public var children: [Node] {
         return CLinkedList(ptr.memory.children).map { Node($0, doc: doc) }
     }

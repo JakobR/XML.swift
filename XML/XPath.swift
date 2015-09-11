@@ -275,7 +275,7 @@ public class XPathResult {
         if ptr.memory.type == XPATH_STRING {
             switch value {
             case .StringValue(let s): return s
-            default: break
+            default: assertionFailure("XPATH_STRING cannot have a value type other than XPathValue.StringValue")
             }
         }
         let cs = xmlXPathCastToString(ptr)
@@ -283,6 +283,13 @@ public class XPathResult {
         // xmlXPathCastToString only returns NULL if xmlStrdup fails, which is most likely due to a memory allocation error.
         precondition(cs != nil, "xmlXPathCastToString returned NULL") // better crash instead of silently returning wrong data
         return String.fromXMLString(cs)!
+    }
+
+    public func asNodeSet() -> [Node]? {
+        switch value {
+        case .NodeSet(let nodes): return nodes
+        default: return nil
+        }
     }
 
     deinit {
