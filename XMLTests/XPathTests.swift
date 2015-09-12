@@ -1,11 +1,3 @@
-//
-//  XPathTests.swift
-//  XPathTests
-//
-//  Created by Jakob Rath on 04/09/15.
-//  Copyright © 2015 Jakob Rath. All rights reserved.
-//
-
 import XCTest
 import Nimble
 @testable import XML

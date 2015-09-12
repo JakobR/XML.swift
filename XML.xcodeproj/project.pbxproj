@@ -21,6 +21,8 @@
 		3657F7E01B6A267D00752463 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7DF1B6A267D00752463 /* Node.swift */; };
 		3657F7E21B6A313A00752463 /* CLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E11B6A313A00752463 /* CLinkedList.swift */; };
 		3657F7E41B6A335300752463 /* CLinkedList+libxml2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */; };
+		368A9B161BA46BC300D66318 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 368A9B151BA46BC300D66318 /* LICENSE.txt */; };
+		368A9B171BA46BC300D66318 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 368A9B151BA46BC300D66318 /* LICENSE.txt */; };
 		36BD20441B983FF20088EC4B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20431B983FF20088EC4B /* String.swift */; };
 		36BD20461B9843370088EC4B /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20451B9843370088EC4B /* Namespace.swift */; };
 		36BD204A1B9845E70088EC4B /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BD20491B9845E70088EC4B /* Attribute.swift */; };
@@ -79,6 +81,7 @@
 		3657F7DF1B6A267D00752463 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		3657F7E11B6A313A00752463 /* CLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLinkedList.swift; sourceTree = "<group>"; };
 		3657F7E31B6A335300752463 /* CLinkedList+libxml2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLinkedList+libxml2.swift"; sourceTree = "<group>"; };
+		368A9B151BA46BC300D66318 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		36BD20431B983FF20088EC4B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		36BD20451B9843370088EC4B /* Namespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		36BD20491B9845E70088EC4B /* Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 				36BD20521B98577A0088EC4B /* Nimble.framework */,
 				362438241B696A7400BB009C /* libxml2.2.tbd */,
 				362438251B696A7400BB009C /* libxml2.tbd */,
+				368A9B151BA46BC300D66318 /* LICENSE.txt */,
 				362438011B69698A00BB009C /* XML */,
 				3624380D1B69698A00BB009C /* XMLTests */,
 				3624382E1B69775500BB009C /* libxml2 */,
@@ -143,12 +147,12 @@
 			children = (
 				362438021B69698A00BB009C /* XML.h */,
 				362438041B69698A00BB009C /* Info.plist */,
+				3624382D1B69734300BB009C /* module.modulemap */,
+				3657F7D71B6A11D400752463 /* XML.xcconfig */,
 				3657F7D91B6A1EBF00752463 /* Error.swift */,
 				3657F7DB1B6A20B500752463 /* ParserContext.swift */,
 				36BD204B1B9846080088EC4B /* Document tree */,
 				36CC62A01B99B0220060FC7E /* XPath */,
-				3624382D1B69734300BB009C /* module.modulemap */,
-				3657F7D71B6A11D400752463 /* XML.xcconfig */,
 				3657F7E51B6A624400752463 /* Helper */,
 			);
 			path = XML;
@@ -161,11 +165,11 @@
 				36BD20801B989AC00088EC4B /* NodeTests.swift */,
 				3624380E1B69698A00BB009C /* DocumentTests.swift */,
 				36CC62A51B99F9D30060FC7E /* XPathTests.swift */,
+				36BD205B1B985F970088EC4B /* Helper.swift */,
 				362438101B69698A00BB009C /* Info.plist */,
 				36BD20571B9859640088EC4B /* TestDocument1.xml */,
 				36CC62A11B99B3740060FC7E /* IllegalXMLDocument1.xml */,
 				36BD20591B985E2F0088EC4B /* InvalidDocument1.xml */,
-				36BD205B1B985F970088EC4B /* Helper.swift */,
 				36BD20651B9875A80088EC4B /* XMLTests.xcconfig */,
 			);
 			path = XMLTests;
@@ -295,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368A9B161BA46BC300D66318 /* LICENSE.txt in Resources */,
 				3624382F1B69775500BB009C /* libxml2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368A9B171BA46BC300D66318 /* LICENSE.txt in Resources */,
 				36CC62A21B99B3740060FC7E /* IllegalXMLDocument1.xml in Resources */,
 				36BD205A1B985E2F0088EC4B /* InvalidDocument1.xml in Resources */,
 				36BD20581B9859640088EC4B /* TestDocument1.xml in Resources */,

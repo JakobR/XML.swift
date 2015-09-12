@@ -1,11 +1,3 @@
-//
-//  XMLDocument.swift
-//  LibXML
-//
-//  Created by Jakob Rath on 29/07/15.
-//  Copyright © 2015 Jakob Rath. All rights reserved.
-//
-
 import Foundation
 import libxml2
 

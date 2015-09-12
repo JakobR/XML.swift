@@ -1,11 +1,3 @@
-//
-//  ParserContext.swift
-//  LibXML
-//
-//  Created by Jakob Rath on 30/07/15.
-//  Copyright © 2015 Jakob Rath. All rights reserved.
-//
-
 import libxml2
 
 /// Owns an xmlParserCtxtPtr and ensures it is cleaned up correctly.

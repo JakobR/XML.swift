@@ -1,11 +1,3 @@
-//
-//  Helper.swift
-//  LibXML
-//
-//  Created by Jakob Rath on 30/07/15.
-//  Copyright © 2015 Jakob Rath. All rights reserved.
-//
-
 protocol CLinkedListNext {
     var cLinkedListNext: UnsafeMutablePointer<Self> { get }
 }

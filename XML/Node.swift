@@ -1,12 +1,3 @@
-//
-//  Node.swift
-//  LibXML
-//
-//  Created by Jakob Rath on 30/07/15.
-//  Copyright © 2015 Jakob Rath. All rights reserved.
-//
-
-import Foundation
 import libxml2
 
 /// The different node types carried by an XML tree.

@@ -1,12 +1,3 @@
-//
-//  XPath.swift
-//  LibXML
-//
-//  Created by Jakob Rath on 04/09/15.
-//  Copyright © 2015 Jakob Rath. All rights reserved.
-//
-
-import Foundation
 import libxml2
 
 public enum XPathErrorCode: Int {

@@ -1,11 +1,3 @@
-//
-//  DocumentTests.swift
-//  DocumentTests
-//
-//  Created by Jakob Rath on 29/07/15.
-//  Copyright © 2015 Jakob Rath. All rights reserved.
-//
-
 import XCTest
 import Nimble
 @testable import XML

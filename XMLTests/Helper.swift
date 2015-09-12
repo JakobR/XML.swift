@@ -1,11 +1,3 @@
-//
-//  Helper.swift
-//  LibXML
-//
-//  Created by Jakob Rath on 03/09/15.
-//  Copyright © 2015 Jakob Rath. All rights reserved.
-//
-
 import Foundation
 
 private class Helper {
