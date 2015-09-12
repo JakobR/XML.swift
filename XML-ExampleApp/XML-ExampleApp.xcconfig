@@ -1,2 +1,0 @@
-SWIFT_INCLUDE_PATHS = $(SRCROOT)/libxml2
-HEADER_SEARCH_PATHS = $(SDKROOT)/usr/include/libxml2
