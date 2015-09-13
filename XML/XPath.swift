@@ -157,6 +157,7 @@ public class XPath {
         xmlXPathFreeCompExpr(ptr);
     }
 
+    /// Evaluates the XPath query with the given node as context node.
     public func evaluateOn(node: Node) throws -> XPathResult {
         let context = try XPathContext(node: node)
         let obj = xmlXPathCompiledEval(ptr, context.ptr)
@@ -166,6 +167,7 @@ public class XPath {
         return XPathResult(ptr: obj, onNode: node)
     }
 
+    /// Evaluates the XPath query with the given document's root node as context node.
     public func evaluateOn(doc: Document) throws -> XPathResult {
         return try evaluateOn(doc.root)
     }
@@ -258,6 +260,7 @@ public class XPathResult {
         return xmlXPathCastToBoolean(ptr) != 0
     }
 
+    // TODO: Use "Double" instead of "Number" on the Swift side?
     public func asNumber() -> Double {
         return xmlXPathCastToNumber(ptr)
     }
@@ -277,6 +280,7 @@ public class XPathResult {
     }
 
     public func asNodeSet() -> [Node]? {
+        // TODO: Maybe we want an empty list in the "default" case? This would be in line with the other asType() functions.
         switch value {
         case .NodeSet(let nodes): return nodes
         default: return nil
